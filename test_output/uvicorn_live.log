@@ -1,0 +1,41 @@
+INFO:     Started server process [581315]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8077 (Press CTRL+C to quit)
+INFO:     127.0.0.1:40436 - "GET /health HTTP/1.1" 200 OK
+2026-11-14 14:20:04,112 INFO ae classify label=layanan_harga conf=0.948
+INFO:     127.0.0.1:40446 - "POST /api/v1/classify HTTP/1.1" 200 OK
+2026-11-14 14:20:04,120 INFO ae classify label=info_operasional conf=0.972
+INFO:     127.0.0.1:40448 - "POST /api/v1/classify HTTP/1.1" 200 OK
+2026-11-14 14:20:04,128 INFO ae classify label=cara_reservasi conf=0.719
+INFO:     127.0.0.1:40458 - "POST /api/v1/classify HTTP/1.1" 200 OK
+2026-11-14 14:20:04,136 INFO ae classify label=cara_reservasi conf=0.346
+INFO:     127.0.0.1:40466 - "POST /api/v1/classify HTTP/1.1" 200 OK
+2026-11-14 14:20:04,143 INFO ae classify label=info_operasional conf=0.344
+INFO:     127.0.0.1:40482 - "POST /api/v1/classify HTTP/1.1" 200 OK
+2026-11-14 14:20:14,200 WARNING ae.genai gemini gagal model=gemini-3.1-flash-lite jenis=timeout status=None
+2026-11-14 14:20:15,937 INFO httpx HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-11-14 14:20:15,938 INFO ae chat label=layanan_harga conf=0.903 sumber=gemini model=gemini-3.1-flash-lite ms=11785 percobaan=2
+INFO:     127.0.0.1:40496 - "POST /api/v1/chat HTTP/1.1" 200 OK
+2026-11-14 14:20:16,984 INFO httpx HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-11-14 14:20:16,985 INFO ae chat label=cara_reservasi conf=0.730 sumber=gemini model=gemini-3.1-flash-lite ms=1036 percobaan=1
+INFO:     127.0.0.1:47508 - "POST /api/v1/chat HTTP/1.1" 200 OK
+2026-11-14 14:20:17,728 INFO httpx HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-11-14 14:20:17,728 INFO ae chat label=layanan_harga conf=0.893 sumber=gemini model=gemini-3.1-flash-lite ms=732 percobaan=1
+INFO:     127.0.0.1:47522 - "POST /api/v1/chat HTTP/1.1" 200 OK
+2026-11-14 14:20:18,450 INFO httpx HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-11-14 14:20:18,451 INFO ae chat label=pembatalan_keluhan conf=0.838 sumber=gemini model=gemini-3.1-flash-lite ms=712 percobaan=1
+INFO:     127.0.0.1:47538 - "POST /api/v1/chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47544 - "POST /api/v1/classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:47556 - "POST /api/v1/classify HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:47558 - "POST /api/v1/classify HTTP/1.1" 401 Unauthorized
+2026-11-14 14:20:19,170 INFO httpx HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-11-14 14:20:19,171 INFO ae chat label=info_operasional conf=0.344 sumber=gemini model=gemini-3.1-flash-lite ms=688 percobaan=1
+INFO:     127.0.0.1:47574 - "POST /api/v1/chat HTTP/1.1" 200 OK
+2026-11-14 14:20:19,840 INFO httpx HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-11-14 14:20:19,841 INFO ae chat label=cara_reservasi conf=0.346 sumber=gemini model=gemini-3.1-flash-lite ms=660 percobaan=1
+INFO:     127.0.0.1:47578 - "POST /api/v1/chat HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [581315]

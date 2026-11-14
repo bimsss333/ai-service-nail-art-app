@@ -1,0 +1,26 @@
+INFO:     Started server process [581183]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8078 (Press CTRL+C to quit)
+2026-11-14 14:19:50,597 INFO httpx HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/model-tidak-ada:generateContent "HTTP/1.1 404 Not Found"
+2026-11-14 14:19:50,597 WARNING ae.genai gemini gagal model=model-tidak-ada jenis=http status=404
+2026-11-14 14:19:50,711 INFO httpx HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/model-tidak-ada-2:generateContent "HTTP/1.1 404 Not Found"
+2026-11-14 14:19:50,712 WARNING ae.genai gemini gagal model=model-tidak-ada-2 jenis=http status=404
+2026-11-14 14:19:50,712 INFO ae chat label=layanan_harga conf=0.948 sumber=fallback model=None ms=271 percobaan=2
+INFO:     127.0.0.1:55536 - "POST /api/v1/chat HTTP/1.1" 200 OK
+2026-11-14 14:19:50,873 INFO httpx HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/model-tidak-ada:generateContent "HTTP/1.1 404 Not Found"
+2026-11-14 14:19:50,873 WARNING ae.genai gemini gagal model=model-tidak-ada jenis=http status=404
+2026-11-14 14:19:50,956 INFO httpx HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/model-tidak-ada-2:generateContent "HTTP/1.1 404 Not Found"
+2026-11-14 14:19:50,957 WARNING ae.genai gemini gagal model=model-tidak-ada-2 jenis=http status=404
+2026-11-14 14:19:50,957 INFO ae chat label=info_operasional conf=0.972 sumber=fallback model=None ms=234 percobaan=2
+INFO:     127.0.0.1:55550 - "POST /api/v1/chat HTTP/1.1" 200 OK
+2026-11-14 14:19:51,133 INFO httpx HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/model-tidak-ada:generateContent "HTTP/1.1 404 Not Found"
+2026-11-14 14:19:51,133 WARNING ae.genai gemini gagal model=model-tidak-ada jenis=http status=404
+2026-11-14 14:19:51,212 INFO httpx HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/model-tidak-ada-2:generateContent "HTTP/1.1 404 Not Found"
+2026-11-14 14:19:51,213 WARNING ae.genai gemini gagal model=model-tidak-ada-2 jenis=http status=404
+2026-11-14 14:19:51,213 INFO ae chat label=cara_reservasi conf=0.346 sumber=fallback model=None ms=245 percobaan=2
+INFO:     127.0.0.1:55556 - "POST /api/v1/chat HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [581183]

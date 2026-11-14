@@ -1,0 +1,14 @@
+### waktu: 2026-11-14 14:19:50 WIB
+### Simulasi Gemini gagal total (nama model sengaja salah -> HTTP 404 asli dari server Gemini), AE_INTERNAL_KEY kosong (mode dev)
+### POST /api/v1/chat Berapa harga gel polish?
+{"jawaban":"Maaf, asisten sedang sibuk. Daftar layanan dan harga lengkap bisa dilihat di halaman /pesan (contoh: Full Set Acrylic Rp350.000, Gel Extension Rp300.000, Gel Polish Rp120.000). Untuk info yang belum tersedia, silakan hubungi studio The Nail Palace secara langsung.","label":"layanan_harga","confidence":0.9479,"yakin":true,"sumber":"fallback","model_dipakai":null,"percobaan":2,"durasi_ms":271}
+[HTTP 200, 0.286864s]
+
+### POST /api/v1/chat Studio buka jam berapa ya?
+{"jawaban":"Maaf, asisten sedang sibuk. The Nail Palace berada di Kota Jambi. Untuk jam buka, alamat lengkap, dan kontak, silakan hubungi studio secara langsung.","label":"info_operasional","confidence":0.9724,"yakin":true,"sumber":"fallback","model_dipakai":null,"percobaan":2,"durasi_ms":234}
+[HTTP 200, 0.238328s]
+
+### POST /api/v1/chat Kalau mau batalin reservasi gimana?
+{"jawaban":"Maaf, asisten sedang sibuk. Untuk memesan, buka halaman /pesan; untuk cek status booking, buka halaman /cek-booking. Untuk pertanyaan lain, silakan hubungi studio The Nail Palace secara langsung.","label":"cara_reservasi","confidence":0.346,"yakin":false,"sumber":"fallback","model_dipakai":null,"percobaan":2,"durasi_ms":245}
+[HTTP 200, 0.248636s]
+

@@ -1,0 +1,53 @@
+### waktu: 2026-11-14 14:20:04 WIB
+### GET /health
+{"status":"ok","model_loaded":true,"model_version":"logreg-tfidf-2026-11-14","labels":["cara_reservasi","info_operasional","layanan_harga","pembatalan_keluhan"],"conf_threshold":0.55,"gemini_configured":true,"gemini_model":"gemini-3.1-flash-lite","gemini_backup_model":"gemini-2.5-flash-lite","auth_required":true}
+[HTTP 200, 0.014377s]
+
+### POST /api/v1/classify  {"pertanyaan": "Berapa harga gel polish kak?"}
+{"label":"layanan_harga","confidence":0.9479,"yakin":true,"ambang":0.55,"probabilities":{"layanan_harga":0.9479,"info_operasional":0.0238,"cara_reservasi":0.0197,"pembatalan_keluhan":0.0086},"model_version":"logreg-tfidf-2026-11-14"}
+[HTTP 200, 0.006521s]
+
+### POST /api/v1/classify  {"pertanyaan": "Studio buka jam berapa ya?"}
+{"label":"info_operasional","confidence":0.9724,"yakin":true,"ambang":0.55,"probabilities":{"info_operasional":0.9724,"layanan_harga":0.0148,"cara_reservasi":0.0074,"pembatalan_keluhan":0.0053},"model_version":"logreg-tfidf-2026-11-14"}
+[HTTP 200, 0.002655s]
+
+### POST /api/v1/classify  {"pertanyaan": "Gimana cara booking buat besok?"}
+{"label":"cara_reservasi","confidence":0.719,"yakin":true,"ambang":0.55,"probabilities":{"cara_reservasi":0.719,"pembatalan_keluhan":0.1972,"info_operasional":0.049,"layanan_harga":0.0348},"model_version":"logreg-tfidf-2026-11-14"}
+[HTTP 200, 0.002410s]
+
+### POST /api/v1/classify  {"pertanyaan": "Kalau mau batalin reservasi gimana?"}
+{"label":"cara_reservasi","confidence":0.346,"yakin":false,"ambang":0.55,"probabilities":{"cara_reservasi":0.346,"info_operasional":0.3348,"pembatalan_keluhan":0.2521,"layanan_harga":0.0671},"model_version":"logreg-tfidf-2026-11-14"}
+[HTTP 200, 0.002536s]
+
+### POST /api/v1/classify  {"pertanyaan": "halo"}
+{"label":"info_operasional","confidence":0.3437,"yakin":false,"ambang":0.55,"probabilities":{"info_operasional":0.3437,"layanan_harga":0.2649,"cara_reservasi":0.2469,"pembatalan_keluhan":0.1445},"model_version":"logreg-tfidf-2026-11-14"}
+[HTTP 200, 0.001938s]
+
+### POST /api/v1/chat  {"pertanyaan": "Berapa harga nail art premium?"}
+{"jawaban":"Harga untuk layanan Nail Art Premium adalah Rp250.000 dengan durasi pengerjaan 2 jam. Jika ada informasi lain yang ingin ditanyakan, silakan hubungi pihak studio secara langsung ya.","label":"layanan_harga","confidence":0.9035,"yakin":true,"sumber":"gemini","model_dipakai":"gemini-3.1-flash-lite","percobaan":2,"durasi_ms":11785}
+[HTTP 200, 11.789515s]
+
+### POST /api/v1/chat  {"pertanyaan": "Cara pesan jadwal gimana ya kak?"}
+{"jawaban":"Halo! Untuk melakukan reservasi di The Nail Palace, silakan kunjungi halaman /pesan dan ikuti 4 langkah mudah berikut:\n\n1. Pilih layanan yang diinginkan.\n2. Pilih tanggal dan jam yang tersedia.\n3. Isi nama dan nomor HP Anda.\n4. Tinjau kembali detail pesanan Anda, lalu kirim.\n\nSetelah itu, Anda akan mendapatkan kode booking untuk dicek statusnya di halaman /cek-booking. Jika ada informasi lain yang belum tersedia di sistem, silakan hubungi pihak studio secara langsung ya.","label":"cara_reservasi","confidence":0.7296,"yakin":true,"sumber":"gemini","model_dipakai":"gemini-3.1-flash-lite","percobaan":1,"durasi_ms":1036}
+[HTTP 200, 1.039978s]
+
+### POST /api/v1/chat  {"pertanyaan": "Ada layanan ombre nggak? berapa harganya?"}
+{"jawaban":"Mohon maaf, untuk saat ini saya belum memiliki informasi mengenai layanan ombre di daftar layanan kami. Saya sarankan Anda menghubungi pihak studio The Nail Palace secara langsung untuk menanyakan ketersediaan layanan tersebut. Apakah ada layanan lain dari daftar kami yang ingin Anda ketahui?","label":"layanan_harga","confidence":0.893,"yakin":true,"sumber":"gemini","model_dipakai":"gemini-3.1-flash-lite","percobaan":1,"durasi_ms":732}
+[HTTP 200, 0.735953s]
+
+### POST /api/v1/chat  {"pertanyaan": "Saya mau batalin booking, bisa?"}
+{"jawaban":"Mohon maaf, saya tidak memiliki akses untuk membatalkan atau mengubah booking Anda. Untuk informasi lebih lanjut mengenai prosedur pembatalan, silakan hubungi pihak studio The Nail Palace secara langsung. \n\nJika Anda ingin membuat reservasi baru setelah pembatalan, Anda dapat melakukannya melalui halaman /pesan.","label":"pembatalan_keluhan","confidence":0.8382,"yakin":true,"sumber":"gemini","model_dipakai":"gemini-3.1-flash-lite","percobaan":1,"durasi_ms":712}
+[HTTP 200, 0.715426s]
+
+### Error cases
+### POST /api/v1/classify  {"pertanyaan": ""}
+{"error":{"code":"VALIDATION_ERROR","message":"Pertanyaan tidak boleh kosong."}}
+[HTTP 400, 0.001445s]
+
+### POST /api/v1/classify  {"pertanyaan": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"}
+{"error":{"code":"VALIDATION_ERROR","message":"Pertanyaan terlalu panjang (maksimal 500 karakter)."}}
+[HTTP 400, 0.001205s]
+
+### POST tanpa X-Internal-Key
+{"error":{"code":"UNAUTHORIZED","message":"Header X-Internal-Key tidak ada atau salah."}}
+[HTTP 401]

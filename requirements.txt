@@ -1,0 +1,11 @@
+# Versi dipin sesuai yang dipakai saat melatih & menguji (14 Nov 2026, Python 3.13.5).
+# scikit-learn WAJIB 1.9.1 karena model di-pickle dengan versi ini.
+scikit-learn==1.9.1
+joblib==1.6.0
+numpy==2.5.4
+scipy==1.18.1
+fastapi==0.162.7
+starlette==1.10.0
+pydantic==2.14.3
+uvicorn==0.54.0
+httpx==0.28.1

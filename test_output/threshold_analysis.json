@@ -1,0 +1,71 @@
+{
+  "n": 600,
+  "acc_oof": 0.91,
+  "conf_median_benar": 0.8637647283697565,
+  "conf_median_salah": 0.5439590319217318,
+  "rows": [
+    {
+      "thr": 0.3,
+      "pct_flagged": 0.0,
+      "acc_diatas": 0.91,
+      "n_diatas": 600,
+      "pct_salah_tertangkap": 0.0
+    },
+    {
+      "thr": 0.35,
+      "pct_flagged": 0.005,
+      "acc_diatas": 0.9128978224455612,
+      "n_diatas": 597,
+      "pct_salah_tertangkap": 0.037037037037037035
+    },
+    {
+      "thr": 0.4,
+      "pct_flagged": 0.021666666666666667,
+      "acc_diatas": 0.9148211243611585,
+      "n_diatas": 587,
+      "pct_salah_tertangkap": 0.07407407407407407
+    },
+    {
+      "thr": 0.45,
+      "pct_flagged": 0.043333333333333335,
+      "acc_diatas": 0.9233449477351916,
+      "n_diatas": 574,
+      "pct_salah_tertangkap": 0.18518518518518517
+    },
+    {
+      "thr": 0.5,
+      "pct_flagged": 0.07666666666666666,
+      "acc_diatas": 0.9368231046931408,
+      "n_diatas": 554,
+      "pct_salah_tertangkap": 0.35185185185185186
+    },
+    {
+      "thr": 0.55,
+      "pct_flagged": 0.12333333333333334,
+      "acc_diatas": 0.9505703422053232,
+      "n_diatas": 526,
+      "pct_salah_tertangkap": 0.5185185185185185
+    },
+    {
+      "thr": 0.6,
+      "pct_flagged": 0.165,
+      "acc_diatas": 0.9580838323353293,
+      "n_diatas": 501,
+      "pct_salah_tertangkap": 0.6111111111111112
+    },
+    {
+      "thr": 0.65,
+      "pct_flagged": 0.21333333333333335,
+      "acc_diatas": 0.9597457627118644,
+      "n_diatas": 472,
+      "pct_salah_tertangkap": 0.6481481481481481
+    },
+    {
+      "thr": 0.7,
+      "pct_flagged": 0.25833333333333336,
+      "acc_diatas": 0.9640449438202248,
+      "n_diatas": 445,
+      "pct_salah_tertangkap": 0.7037037037037037
+    }
+  ]
+}
