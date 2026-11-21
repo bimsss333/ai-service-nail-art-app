@@ -1,0 +1,354 @@
+{
+  "data": "/workspace/capstone/data/dataset_classifier_v2_label_pp.csv",
+  "n": 600,
+  "label_counts": {
+    "cara_reservasi": 200,
+    "layanan_harga": 150,
+    "info_operasional": 150,
+    "pembatalan_keluhan": 100
+  },
+  "n_groups": 60,
+  "random_state": 42,
+  "results": {
+    "grouped_LogReg": {
+      "split": "grouped",
+      "model": "LogReg",
+      "macro_f1_mean": 0.9010670981721052,
+      "macro_f1_std": 0.034793927674884595,
+      "macro_f1_folds": [
+        0.922069597069597,
+        0.9138037676277093,
+        0.836389616575375,
+        0.8966869088652896,
+        0.936385600722555
+      ],
+      "accuracy_mean": 0.9033333333333333,
+      "macro_f1_pooled_oof": 0.9015803233580811,
+      "best_params_per_fold": [
+        {
+          "clf__C": "10",
+          "tfidf__min_df": "2",
+          "tfidf__ngram_range": "(1, 2)",
+          "tfidf__sublinear_tf": "True"
+        },
+        {
+          "clf__C": "10",
+          "tfidf__min_df": "2",
+          "tfidf__ngram_range": "(1, 2)",
+          "tfidf__sublinear_tf": "True"
+        },
+        {
+          "clf__C": "10",
+          "tfidf__min_df": "1",
+          "tfidf__ngram_range": "(1, 2)",
+          "tfidf__sublinear_tf": "True"
+        },
+        {
+          "clf__C": "10",
+          "tfidf__min_df": "1",
+          "tfidf__ngram_range": "(1, 2)",
+          "tfidf__sublinear_tf": "True"
+        },
+        {
+          "clf__C": "10",
+          "tfidf__min_df": "1",
+          "tfidf__ngram_range": "(1, 1)",
+          "tfidf__sublinear_tf": "True"
+        }
+      ],
+      "confusion_matrix": {
+        "labels": [
+          "layanan_harga",
+          "info_operasional",
+          "cara_reservasi",
+          "pembatalan_keluhan"
+        ],
+        "matrix": [
+          [
+            144,
+            2,
+            3,
+            1
+          ],
+          [
+            2,
+            137,
+            10,
+            1
+          ],
+          [
+            9,
+            4,
+            175,
+            12
+          ],
+          [
+            2,
+            2,
+            10,
+            86
+          ]
+        ]
+      }
+    },
+    "grouped_LinearSVC": {
+      "split": "grouped",
+      "model": "LinearSVC",
+      "macro_f1_mean": 0.9000090599454019,
+      "macro_f1_std": 0.0366759181815352,
+      "macro_f1_folds": [
+        0.9172229013715,
+        0.9209818902093944,
+        0.8284856533971131,
+        0.904064491621998,
+        0.9292903631270039
+      ],
+      "accuracy_mean": 0.9016666666666666,
+      "macro_f1_pooled_oof": 0.9010195462009775,
+      "best_params_per_fold": [
+        {
+          "clf__C": "10",
+          "tfidf__min_df": "1",
+          "tfidf__ngram_range": "(1, 2)",
+          "tfidf__sublinear_tf": "True"
+        },
+        {
+          "clf__C": "1",
+          "tfidf__min_df": "2",
+          "tfidf__ngram_range": "(1, 2)",
+          "tfidf__sublinear_tf": "True"
+        },
+        {
+          "clf__C": "10",
+          "tfidf__min_df": "1",
+          "tfidf__ngram_range": "(1, 2)",
+          "tfidf__sublinear_tf": "True"
+        },
+        {
+          "clf__C": "1",
+          "tfidf__min_df": "1",
+          "tfidf__ngram_range": "(1, 1)",
+          "tfidf__sublinear_tf": "True"
+        },
+        {
+          "clf__C": "1",
+          "tfidf__min_df": "1",
+          "tfidf__ngram_range": "(1, 1)",
+          "tfidf__sublinear_tf": "True"
+        }
+      ],
+      "confusion_matrix": {
+        "labels": [
+          "layanan_harga",
+          "info_operasional",
+          "cara_reservasi",
+          "pembatalan_keluhan"
+        ],
+        "matrix": [
+          [
+            144,
+            2,
+            2,
+            2
+          ],
+          [
+            1,
+            138,
+            9,
+            2
+          ],
+          [
+            10,
+            9,
+            171,
+            10
+          ],
+          [
+            2,
+            1,
+            9,
+            88
+          ]
+        ]
+      }
+    },
+    "random_LogReg": {
+      "split": "random",
+      "model": "LogReg",
+      "macro_f1_mean": 0.922991444986889,
+      "macro_f1_std": 0.02799542209267559,
+      "macro_f1_folds": [
+        0.9058139782579367,
+        0.9180148189590511,
+        0.9076810879658161,
+        0.9782112471467109,
+        0.90523609260493
+      ],
+      "accuracy_mean": 0.9266666666666667,
+      "macro_f1_pooled_oof": 0.9231116015132409,
+      "best_params_per_fold": [
+        {
+          "clf__C": "10",
+          "tfidf__min_df": "2",
+          "tfidf__ngram_range": "(1, 2)",
+          "tfidf__sublinear_tf": "True"
+        },
+        {
+          "clf__C": "10",
+          "tfidf__min_df": "2",
+          "tfidf__ngram_range": "(1, 2)",
+          "tfidf__sublinear_tf": "True"
+        },
+        {
+          "clf__C": "10",
+          "tfidf__min_df": "1",
+          "tfidf__ngram_range": "(1, 2)",
+          "tfidf__sublinear_tf": "True"
+        },
+        {
+          "clf__C": "10",
+          "tfidf__min_df": "1",
+          "tfidf__ngram_range": "(1, 1)",
+          "tfidf__sublinear_tf": "True"
+        },
+        {
+          "clf__C": "10",
+          "tfidf__min_df": "1",
+          "tfidf__ngram_range": "(1, 1)",
+          "tfidf__sublinear_tf": "True"
+        }
+      ],
+      "confusion_matrix": {
+        "labels": [
+          "layanan_harga",
+          "info_operasional",
+          "cara_reservasi",
+          "pembatalan_keluhan"
+        ],
+        "matrix": [
+          [
+            146,
+            2,
+            1,
+            1
+          ],
+          [
+            0,
+            146,
+            4,
+            0
+          ],
+          [
+            7,
+            4,
+            177,
+            12
+          ],
+          [
+            2,
+            3,
+            8,
+            87
+          ]
+        ]
+      }
+    },
+    "random_LinearSVC": {
+      "split": "random",
+      "model": "LinearSVC",
+      "macro_f1_mean": 0.9323627775895389,
+      "macro_f1_std": 0.024703841626473187,
+      "macro_f1_folds": [
+        0.9320786638263715,
+        0.9302535974235716,
+        0.9111880409126671,
+        0.9782112471467109,
+        0.9100823386383731
+      ],
+      "accuracy_mean": 0.9333333333333333,
+      "macro_f1_pooled_oof": 0.9323032640776131,
+      "best_params_per_fold": [
+        {
+          "clf__C": "10",
+          "tfidf__min_df": "1",
+          "tfidf__ngram_range": "(1, 2)",
+          "tfidf__sublinear_tf": "True"
+        },
+        {
+          "clf__C": "1",
+          "tfidf__min_df": "1",
+          "tfidf__ngram_range": "(1, 2)",
+          "tfidf__sublinear_tf": "True"
+        },
+        {
+          "clf__C": "1",
+          "tfidf__min_df": "1",
+          "tfidf__ngram_range": "(1, 2)",
+          "tfidf__sublinear_tf": "True"
+        },
+        {
+          "clf__C": "1",
+          "tfidf__min_df": "1",
+          "tfidf__ngram_range": "(1, 1)",
+          "tfidf__sublinear_tf": "True"
+        },
+        {
+          "clf__C": "1",
+          "tfidf__min_df": "1",
+          "tfidf__ngram_range": "(1, 1)",
+          "tfidf__sublinear_tf": "True"
+        }
+      ],
+      "confusion_matrix": {
+        "labels": [
+          "layanan_harga",
+          "info_operasional",
+          "cara_reservasi",
+          "pembatalan_keluhan"
+        ],
+        "matrix": [
+          [
+            147,
+            1,
+            1,
+            1
+          ],
+          [
+            0,
+            146,
+            4,
+            0
+          ],
+          [
+            8,
+            6,
+            175,
+            11
+          ],
+          [
+            1,
+            2,
+            5,
+            92
+          ]
+        ]
+      }
+    }
+  },
+  "best_model": "LogReg",
+  "best_model_final_params": {
+    "clf__C": "10",
+    "tfidf__min_df": "1",
+    "tfidf__ngram_range": "(1, 2)",
+    "tfidf__sublinear_tf": "True"
+  },
+  "best_model_final_inner_cv_f1": 0.9082400894288677,
+  "versions": {
+    "python": "3.13.5",
+    "scikit-learn": "1.9.1",
+    "numpy": "2.5.4",
+    "pandas": "3.0.6",
+    "matplotlib": "3.11.2",
+    "joblib": "1.6.0"
+  }
+}

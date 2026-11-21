@@ -1,0 +1,10 @@
+                    precision    recall  f1-score   support
+
+     layanan_harga      0.917     0.960     0.938       150
+  info_operasional      0.945     0.913     0.929       150
+    cara_reservasi      0.884     0.875     0.879       200
+pembatalan_keluhan      0.860     0.860     0.860       100
+
+          accuracy                          0.903       600
+         macro avg      0.901     0.902     0.902       600
+      weighted avg      0.903     0.903     0.903       600

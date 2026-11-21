@@ -1,0 +1,48 @@
+### waktu: 2026-11-21 11:52:49 WIB
+============================= test session starts ==============================
+platform linux -- Python 3.13.5, pytest-9.2.0, pluggy-1.7.0 -- /workspace/capstone/ae-service/.venv/bin/python3
+cachedir: .pytest_cache
+rootdir: /workspace/capstone/ae-service
+plugins: anyio-4.16.0
+collecting ... collected 32 items
+
+tests/test_api.py::test_health_tidak_bocorkan_key PASSED                 [  3%]
+tests/test_api.py::test_classify_bentuk_respons PASSED                   [  6%]
+tests/test_api.py::test_validasi[/api/v1/classify-body0-tidak boleh kosong] PASSED [  9%]
+tests/test_api.py::test_validasi[/api/v1/classify-body1-tidak boleh kosong] PASSED [ 12%]
+tests/test_api.py::test_validasi[/api/v1/classify-body2-terlalu panjang] PASSED [ 15%]
+tests/test_api.py::test_validasi[/api/v1/classify-body3-field 'pertanyaan'] PASSED [ 18%]
+tests/test_api.py::test_validasi[/api/v1/classify-body4-field 'pertanyaan'] PASSED [ 21%]
+tests/test_api.py::test_validasi[/api/v1/chat-body0-tidak boleh kosong] PASSED [ 25%]
+tests/test_api.py::test_validasi[/api/v1/chat-body1-tidak boleh kosong] PASSED [ 28%]
+tests/test_api.py::test_validasi[/api/v1/chat-body2-terlalu panjang] PASSED [ 31%]
+tests/test_api.py::test_validasi[/api/v1/chat-body3-field 'pertanyaan'] PASSED [ 34%]
+tests/test_api.py::test_validasi[/api/v1/chat-body4-field 'pertanyaan'] PASSED [ 37%]
+tests/test_api.py::test_validasi_bukan_json PASSED                       [ 40%]
+tests/test_api.py::test_panjang_pas_500_diterima PASSED                  [ 43%]
+tests/test_api.py::test_404_format_error PASSED                          [ 46%]
+tests/test_api.py::test_auth_wajib_jika_env_diset PASSED                 [ 50%]
+tests/test_api.py::test_tanpa_env_key_boleh PASSED                       [ 53%]
+tests/test_api.py::test_chat_sukses PASSED                               [ 56%]
+tests/test_api.py::test_503_lalu_sukses PASSED                           [ 59%]
+tests/test_api.py::test_timeout_lalu_model_cadangan PASSED               [ 62%]
+tests/test_api.py::test_semua_gagal_fallback[Berapa harga gel polish?-/pesan] PASSED [ 65%]
+tests/test_api.py::test_semua_gagal_fallback[Cara booking gimana kak?-/pesan] PASSED [ 68%]
+tests/test_api.py::test_400_tidak_diulang PASSED                         [ 71%]
+tests/test_api.py::test_respons_kosong_dianggap_gagal PASSED             [ 75%]
+tests/test_api.py::test_tanpa_gemini_key_langsung_fallback PASSED        [ 78%]
+tests/test_api.py::test_label_ragu_diberi_tahu_ke_prompt PASSED          [ 81%]
+tests/test_api.py::test_label_yakin_tanpa_catatan PASSED                 [ 84%]
+tests/test_api.py::test_fallback_semua_label_dari_knowledge PASSED       [ 87%]
+tests/test_api.py::test_log_tidak_memuat_pertanyaan PASSED               [ 90%]
+tests/test_api.py::test_fallback_label_ragu_umum PASSED                  [ 93%]
+tests/test_api.py::test_404_langsung_ke_cadangan PASSED                  [ 96%]
+tests/test_api.py::test_fallback_tanpa_kalimat_instruksi_bot PASSED      [100%]
+
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/fastapi/testclient.py:1
+  /workspace/capstone/ae-service/.venv/lib/python3.13/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+======================== 32 passed, 1 warning in 7.13s =========================
