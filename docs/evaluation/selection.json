@@ -1,0 +1,12 @@
+{
+  "chosen": "LogReg",
+  "reason": "selisih val F1 LogReg-LinearSVC = +0.0503, |selisih| vs SD nested terbesar 0.0687; LogReg punya predict_proba untuk ambang keyakinan",
+  "threshold": 0.5,
+  "threshold_rule": "ambang terbesar dgn macro F1 val (ragu->di_luar_konteks) >= F1 val tanpa ambang - 0.01",
+  "params": {
+    "tfidf": "word(1, 1)",
+    "C": 10,
+    "class_weight": "balanced"
+  },
+  "locked_before_test": true
+}

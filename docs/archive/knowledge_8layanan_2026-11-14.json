@@ -1,0 +1,49 @@
+{
+  "_catatan": "Satu-satunya sumber fakta untuk asisten. Edit file ini kalau data pemilik berubah (harga, jam, alamat, dll). Isi 'tidak_diketahui' dipindah ke 'fakta' setelah dikonfirmasi pemilik. Sumber awal: video demo localhost Arief, dicek 14 Nov 2026, plus aturan tim.",
+  "versi": "2026-11-14",
+  "studio": {
+    "nama": "The Nail Palace",
+    "deskripsi": "Studio nail art di Kota Jambi"
+  },
+  "layanan": [
+    {"nama": "Full Set Acrylic", "kategori": "Extension", "harga": 350000, "durasi": "2 jam 30 menit"},
+    {"nama": "Gel Extension", "kategori": "Extension", "harga": 300000, "durasi": "2 jam"},
+    {"nama": "Gel Polish", "kategori": "Manicure", "harga": 120000, "durasi": "1 jam"},
+    {"nama": "Manicure Basic", "kategori": "Manicure", "harga": 80000, "durasi": "1 jam"},
+    {"nama": "Nail Art Premium", "kategori": "Nail Art", "harga": 250000, "durasi": "2 jam"},
+    {"nama": "Nail Art Simple", "kategori": "Nail Art", "harga": 150000, "durasi": "1 jam 30 menit"},
+    {"nama": "Pedicure Spa", "kategori": "Perawatan", "harga": 130000, "durasi": "1 jam 30 menit"},
+    {"nama": "Remove Gel", "kategori": "Perawatan", "harga": 40000, "durasi": "30 menit"}
+  ],
+  "cara_reservasi": {
+    "tanpa_akun": "Reservasi tidak perlu akun, tanpa kata sandi.",
+    "halaman_pesan": "/pesan",
+    "langkah": [
+      "Pilih layanan",
+      "Pilih tanggal dan jam",
+      "Isi nama dan nomor HP (catatan atau tautan referensi desain boleh diisi, opsional)",
+      "Tinjau lalu kirim"
+    ],
+    "setelah_kirim": "Pelanggan mendapat kode booking berformat NP-YYYYMMDD-XXXX dengan status 'Menunggu konfirmasi' sampai pemilik studio mengonfirmasi.",
+    "cek_status": "Status booking bisa dicek di halaman /cek-booking dengan memasukkan kode booking dan nomor HP.",
+    "slot": "Jam yang tersedia dipilih langsung di halaman /pesan. Di demo terlihat slot tiap 30 menit dari 13.00 sampai 17.30 pada satu hari, tetapi ini BELUM dikonfirmasi sebagai jam operasional resmi."
+  },
+  "aturan_booking": [
+    "Reservasi yang sudah dibatalkan tidak bisa diaktifkan kembali.",
+    "Untuk memesan ulang, pelanggan membuat booking baru dan akan mendapat kode booking baru.",
+    "Booking ulang boleh di tanggal dan jam yang sama selama slot itu masih kosong.",
+    "Booking baru tetap menunggu konfirmasi pemilik."
+  ],
+  "tidak_diketahui": [
+    "jam dan hari buka resmi",
+    "alamat lengkap studio",
+    "nomor WhatsApp atau kontak studio",
+    "info parkir",
+    "prosedur detail pembatalan atau ubah jadwal (cara teknisnya)",
+    "kebijakan keterlambatan",
+    "hari libur atau tanggal tutup",
+    "promo, diskon, metode pembayaran, DP",
+    "layanan atau harga di luar daftar layanan"
+  ],
+  "arahan_kontak": "Untuk info yang belum tersedia, sarankan pelanggan menghubungi studio The Nail Palace secara langsung."
+}

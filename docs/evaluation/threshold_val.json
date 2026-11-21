@@ -1,0 +1,98 @@
+[
+  {
+    "thr": 0.15,
+    "pct_ragu": 0.0,
+    "acc_di_atas": 0.7209302325581395,
+    "n_di_atas": 172,
+    "pct_salah_tertangkap": 0.0,
+    "f1_macro_mapped": 0.6722802039259571
+  },
+  {
+    "thr": 0.2,
+    "pct_ragu": 0.01744186046511628,
+    "acc_di_atas": 0.7337278106508875,
+    "n_di_atas": 169,
+    "pct_salah_tertangkap": 0.0625,
+    "f1_macro_mapped": 0.6770964520231382
+  },
+  {
+    "thr": 0.25,
+    "pct_ragu": 0.05813953488372093,
+    "acc_di_atas": 0.7592592592592593,
+    "n_di_atas": 162,
+    "pct_salah_tertangkap": 0.1875,
+    "f1_macro_mapped": 0.683482537130324
+  },
+  {
+    "thr": 0.3,
+    "pct_ragu": 0.1569767441860465,
+    "acc_di_atas": 0.8137931034482758,
+    "n_di_atas": 145,
+    "pct_salah_tertangkap": 0.4375,
+    "f1_macro_mapped": 0.6816964095877371
+  },
+  {
+    "thr": 0.35,
+    "pct_ragu": 0.20930232558139536,
+    "acc_di_atas": 0.8529411764705882,
+    "n_di_atas": 136,
+    "pct_salah_tertangkap": 0.5833333333333334,
+    "f1_macro_mapped": 0.6871015481131382
+  },
+  {
+    "thr": 0.4,
+    "pct_ragu": 0.25,
+    "acc_di_atas": 0.8682170542635659,
+    "n_di_atas": 129,
+    "pct_salah_tertangkap": 0.6458333333333334,
+    "f1_macro_mapped": 0.67494188085263
+  },
+  {
+    "thr": 0.45,
+    "pct_ragu": 0.29651162790697677,
+    "acc_di_atas": 0.9090909090909091,
+    "n_di_atas": 121,
+    "pct_salah_tertangkap": 0.7708333333333334,
+    "f1_macro_mapped": 0.6770584083736986
+  },
+  {
+    "thr": 0.5,
+    "pct_ragu": 0.36627906976744184,
+    "acc_di_atas": 0.944954128440367,
+    "n_di_atas": 109,
+    "pct_salah_tertangkap": 0.875,
+    "f1_macro_mapped": 0.6644924882770855
+  },
+  {
+    "thr": 0.55,
+    "pct_ragu": 0.3953488372093023,
+    "acc_di_atas": 0.9615384615384616,
+    "n_di_atas": 104,
+    "pct_salah_tertangkap": 0.9166666666666666,
+    "f1_macro_mapped": 0.6583504705837847
+  },
+  {
+    "thr": 0.6,
+    "pct_ragu": 0.46511627906976744,
+    "acc_di_atas": 0.9782608695652174,
+    "n_di_atas": 92,
+    "pct_salah_tertangkap": 0.9583333333333334,
+    "f1_macro_mapped": 0.6189493674514002
+  },
+  {
+    "thr": 0.65,
+    "pct_ragu": 0.5058139534883721,
+    "acc_di_atas": 0.9882352941176471,
+    "n_di_atas": 85,
+    "pct_salah_tertangkap": 0.9791666666666666,
+    "f1_macro_mapped": 0.5837425130038073
+  },
+  {
+    "thr": 0.7,
+    "pct_ragu": 0.5581395348837209,
+    "acc_di_atas": 0.9868421052631579,
+    "n_di_atas": 76,
+    "pct_salah_tertangkap": 0.9791666666666666,
+    "f1_macro_mapped": 0.5325535631823665
+  }
+]

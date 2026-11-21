@@ -1,0 +1,57 @@
+### waktu: 2026-11-21 14:48:05 WIB
+### GET /health
+{"status":"ok","model_loaded":true,"model_version":"logreg-tfidf-11label-2026-11-21","labels":["cara_reservasi","cek_ubah_batal","di_luar_konteks","durasi","harga","jam_operasional","layanan_desain","lokasi","pembayaran","perawatan_keluhan","sapaan"],"conf_threshold":0.5,"gemini_configured":true,"gemini_model":"gemini-3.1-flash-lite","gemini_backup_model":"gemini-2.5-flash-lite","auth_required":true}
+[HTTP 200, 0.020483s]
+
+### POST /api/v1/classify  {"pertanyaan": "Berapa harga gel polish kak?"}
+{"label":"harga","confidence":0.9538,"yakin":true,"ambang":0.5,"aksi":"jawab_dari_fakta","probabilities":{"harga":0.9538,"durasi":0.0138,"layanan_desain":0.0116,"perawatan_keluhan":0.0044,"di_luar_konteks":0.0038,"cara_reservasi":0.003,"jam_operasional":0.0024,"pembayaran":0.0022,"sapaan":0.002,"lokasi":0.0018,"cek_ubah_batal":0.0012},"model_version":"logreg-tfidf-11label-2026-11-21"}
+[HTTP 200, 0.005242s]
+
+### POST /api/v1/classify  {"pertanyaan": "Studio buka jam berapa ya?"}
+{"label":"jam_operasional","confidence":0.9915,"yakin":true,"ambang":0.5,"aksi":"jawab_dari_fakta","probabilities":{"jam_operasional":0.9915,"durasi":0.0047,"harga":0.0009,"lokasi":0.0009,"di_luar_konteks":0.0005,"sapaan":0.0005,"cek_ubah_batal":0.0004,"pembayaran":0.0003,"cara_reservasi":0.0002,"layanan_desain":0.0001,"perawatan_keluhan":0.0001},"model_version":"logreg-tfidf-11label-2026-11-21"}
+[HTTP 200, 0.002797s]
+
+### POST /api/v1/classify  {"pertanyaan": "Gimana cara booking buat besok?"}
+{"label":"cara_reservasi","confidence":0.9247,"yakin":true,"ambang":0.5,"aksi":"arahkan_ke_reservasi","probabilities":{"cara_reservasi":0.9247,"perawatan_keluhan":0.018,"pembayaran":0.0151,"harga":0.0097,"cek_ubah_batal":0.0082,"durasi":0.0066,"di_luar_konteks":0.0048,"sapaan":0.0048,"lokasi":0.0031,"layanan_desain":0.0026,"jam_operasional":0.0024},"model_version":"logreg-tfidf-11label-2026-11-21"}
+[HTTP 200, 0.002533s]
+
+### POST /api/v1/classify  {"pertanyaan": "Kalau mau batalin reservasi gimana?"}
+{"label":"cek_ubah_batal","confidence":0.4314,"yakin":false,"ambang":0.5,"aksi":"ragu","probabilities":{"cek_ubah_batal":0.4314,"cara_reservasi":0.2186,"perawatan_keluhan":0.0972,"pembayaran":0.0628,"di_luar_konteks":0.0625,"durasi":0.0402,"harga":0.0271,"sapaan":0.0214,"lokasi":0.0174,"jam_operasional":0.0111,"layanan_desain":0.0103},"model_version":"logreg-tfidf-11label-2026-11-21"}
+[HTTP 200, 0.002637s]
+
+### POST /api/v1/classify  {"pertanyaan": "Bisa bayar pakai QRIS?"}
+{"label":"pembayaran","confidence":0.9806,"yakin":true,"ambang":0.5,"aksi":"jawab_dari_fakta","probabilities":{"pembayaran":0.9806,"di_luar_konteks":0.0063,"layanan_desain":0.0043,"cara_reservasi":0.0017,"cek_ubah_batal":0.0017,"lokasi":0.0013,"perawatan_keluhan":0.0012,"harga":0.0009,"jam_operasional":0.0008,"sapaan":0.0008,"durasi":0.0005},"model_version":"logreg-tfidf-11label-2026-11-21"}
+[HTTP 200, 0.002228s]
+
+### POST /api/v1/classify  {"pertanyaan": "halo kak"}
+{"label":"sapaan","confidence":0.831,"yakin":true,"ambang":0.5,"aksi":"balas_sapaan","probabilities":{"sapaan":0.831,"lokasi":0.0307,"perawatan_keluhan":0.0242,"harga":0.0241,"cek_ubah_batal":0.0228,"cara_reservasi":0.0156,"jam_operasional":0.0139,"durasi":0.0104,"pembayaran":0.0103,"di_luar_konteks":0.0085,"layanan_desain":0.0083},"model_version":"logreg-tfidf-11label-2026-11-21"}
+[HTTP 200, 0.002681s]
+
+### POST /api/v1/chat  {"pertanyaan": "Berapa harga paket wisuda?"}
+{"jawaban":"Harga untuk Paket Wisuda di The Nail Palace adalah Rp400.000–Rp550.000 dengan durasi pengerjaan 3 jam. Harga tersebut sudah termasuk layanan *remove gel*.","label":"harga","confidence":0.9828,"yakin":true,"aksi":"jawab_dari_fakta","sumber":"gemini","model_dipakai":"gemini-3.1-flash-lite","percobaan":1,"durasi_ms":1115}
+[HTTP 200, 1.118869s]
+
+### POST /api/v1/chat  {"pertanyaan": "Hari Minggu buka nggak?"}
+{"jawaban":"Mohon maaf, The Nail Palace tutup setiap hari Minggu. Kami melayani pelanggan dari hari Senin hingga Sabtu dengan jam operasional pukul 10:00–19:00 WIB. Jika ada pertanyaan lebih lanjut, silakan hubungi kami melalui Instagram di https://www.instagram.com/thenailpalace____/.","label":"jam_operasional","confidence":0.9541,"yakin":true,"aksi":"jawab_dari_fakta","sumber":"gemini","model_dipakai":"gemini-3.1-flash-lite","percobaan":1,"durasi_ms":2052}
+[HTTP 200, 2.055691s]
+
+### POST /api/v1/chat  {"pertanyaan": "Ada layanan ombre nggak? berapa harganya?"}
+{"jawaban":"Ya, kami menyediakan layanan *French Tip / Ombre* dengan harga mulai dari Rp140.000 hingga Rp170.000. Durasi pengerjaannya sekitar 1 jam 30 menit. Jika ada pertanyaan lebih lanjut, silakan hubungi kami melalui Instagram di https://www.instagram.com/thenailpalace____/.","label":"layanan_desain","confidence":0.595,"yakin":true,"aksi":"jawab_dari_fakta","sumber":"gemini","model_dipakai":"gemini-3.1-flash-lite","percobaan":1,"durasi_ms":846}
+[HTTP 200, 0.848703s]
+
+### POST /api/v1/chat  {"pertanyaan": "Saya mau batalin booking, bisa?"}
+{"jawaban":"Tentu, Anda bisa membatalkan reservasi melalui halaman /cek-booking dengan memasukkan kode booking (NP-YYYYMMDD-XXXX) dan nomor HP yang digunakan saat memesan. Perlu diingat, pembatalan hanya dapat dilakukan sebelum jadwal layanan dimulai. Jika ada kendala, silakan hubungi kami melalui Instagram https://www.instagram.com/thenailpalace____/.","label":"cek_ubah_batal","confidence":0.9888,"yakin":true,"aksi":"arahkan_ke_cek_reservasi","sumber":"gemini","model_dipakai":"gemini-3.1-flash-lite","percobaan":1,"durasi_ms":2792}
+[HTTP 200, 2.795384s]
+
+### Error cases
+### POST /api/v1/classify  {"pertanyaan": ""}
+{"error":{"code":"VALIDATION_ERROR","message":"Pertanyaan tidak boleh kosong."}}
+[HTTP 400, 0.002402s]
+
+### POST /api/v1/classify  {"pertanyaan": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"}
+{"error":{"code":"VALIDATION_ERROR","message":"Pertanyaan terlalu panjang (maksimal 500 karakter)."}}
+[HTTP 400, 0.001870s]
+
+### POST tanpa X-Internal-Key
+{"error":{"code":"UNAUTHORIZED","message":"Header X-Internal-Key tidak ada atau salah."}}
+[HTTP 401]

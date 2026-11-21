@@ -14,7 +14,7 @@ from .classifier import Classifier
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s %(message)s")
 log = logging.getLogger("ae")
 
-app = FastAPI(title="The Nail Palace AE Service", version="0.1.0", docs_url="/docs", redoc_url=None)
+app = FastAPI(title="The Nail Palace AE Service", version="0.2.0", docs_url="/docs", redoc_url=None)
 if config.cors_origins():
     app.add_middleware(CORSMiddleware, allow_origins=config.cors_origins(), allow_methods=["GET", "POST"], allow_headers=["*"])
 
@@ -84,7 +84,8 @@ def classify(body: Pertanyaan):
     text = clean(body); r = get_clf().predict(text)
     log.info("classify label=%s conf=%.3f", r["label"], r["confidence"])
     return {"label": r["label"], "confidence": r["confidence"], "yakin": r["yakin"],
-            "ambang": config.CONF_THRESHOLD, "probabilities": r["probabilities"], "model_version": config.MODEL_VERSION}
+            "ambang": config.CONF_THRESHOLD, "aksi": genai.aksi(r["label"]) if r["yakin"] else "ragu",
+            "probabilities": r["probabilities"], "model_version": config.MODEL_VERSION}
 
 @app.post("/api/v1/chat", dependencies=[Depends(require_internal_key)])
 async def chat(body: Pertanyaan):
@@ -94,4 +95,5 @@ async def chat(body: Pertanyaan):
     ms = int((time.monotonic() - t0) * 1000)
     log.info("chat label=%s conf=%.3f sumber=%s model=%s ms=%d percobaan=%d", r["label"], r["confidence"], g["sumber"], g["model_dipakai"], ms, len(g["percobaan"]))
     return {"jawaban": g["jawaban"], "label": r["label"], "confidence": r["confidence"], "yakin": r["yakin"],
+            "aksi": genai.aksi(r["label"]) if r["yakin"] else "ragu",
             "sumber": g["sumber"], "model_dipakai": g["model_dipakai"], "percobaan": len(g["percobaan"]), "durasi_ms": ms}

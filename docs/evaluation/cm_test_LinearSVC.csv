@@ -1,0 +1,12 @@
+,cara_reservasi,cek_ubah_batal,di_luar_konteks,durasi,harga,jam_operasional,layanan_desain,lokasi,pembayaran,perawatan_keluhan,sapaan
+cara_reservasi,13,0,0,0,0,1,0,0,0,0,0
+cek_ubah_batal,7,0,0,0,0,0,6,0,0,0,0
+di_luar_konteks,0,3,6,0,4,0,2,4,0,0,0
+durasi,0,0,0,0,8,0,8,0,0,0,0
+harga,0,0,3,1,9,0,6,0,0,0,3
+jam_operasional,0,0,0,0,0,11,0,0,0,0,0
+layanan_desain,0,0,0,0,4,0,9,0,5,0,0
+lokasi,0,0,3,0,2,0,0,4,0,1,0
+pembayaran,0,0,4,0,0,0,2,6,0,0,0
+perawatan_keluhan,0,0,1,0,0,0,4,0,0,5,1
+sapaan,0,0,9,0,0,0,0,0,0,0,9

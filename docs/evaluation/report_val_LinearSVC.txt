@@ -1,0 +1,17 @@
+                   precision    recall  f1-score   support
+
+   cara_reservasi      0.875     0.368     0.519        19
+   cek_ubah_batal      0.812     1.000     0.897        13
+  di_luar_konteks      0.471     0.471     0.471        17
+           durasi      0.778     0.875     0.824        16
+            harga      0.750     0.682     0.714        22
+  jam_operasional      1.000     1.000     1.000        15
+   layanan_desain      0.586     0.895     0.708        19
+           lokasi      0.308     0.400     0.348        10
+       pembayaran      0.000     0.000     0.000        11
+perawatan_keluhan      0.615     0.667     0.640        12
+           sapaan      0.722     0.722     0.722        18
+
+         accuracy                          0.663       172
+        macro avg      0.629     0.644     0.622       172
+     weighted avg      0.661     0.663     0.645       172

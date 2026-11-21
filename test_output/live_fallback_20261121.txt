@@ -1,0 +1,7 @@
+### waktu: 2026-11-21 14:48:24 WIB — Gemini sengaja gagal (nama model salah)
+### POST /api/v1/chat {"pertanyaan": "Studio buka jam berapa ya?"}
+{"jawaban":"Maaf, asisten sedang sibuk. The Nail Palace buka Senin–Sabtu pukul 10:00–19:00 WIB, tutup hari Minggu. Slot yang masih kosong bisa dicek di halaman /pesan.","label":"jam_operasional","confidence":0.9915,"yakin":true,"aksi":"jawab_dari_fakta","sumber":"fallback","model_dipakai":null,"percobaan":2,"durasi_ms":207}
+[HTTP 200]
+### POST /api/v1/chat {"pertanyaan": "Bisa bayar pakai QRIS?"}
+{"jawaban":"Maaf, asisten sedang sibuk. Pembayaran bisa tunai, transfer, QRIS. Dibayar di studio setelah layanan. Tidak ada DP / pembayaran online lewat website. Untuk info lain, silakan hubungi studio lewat Instagram https://www.instagram.com/thenailpalace____/.","label":"pembayaran","confidence":0.9806,"yakin":true,"aksi":"jawab_dari_fakta","sumber":"fallback","model_dipakai":null,"percobaan":2,"durasi_ms":186}
+[HTTP 200]

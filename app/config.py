@@ -7,14 +7,14 @@ BASE = Path(__file__).resolve().parent.parent
 def _f(name, default): return float(os.environ.get(name, default))
 def _i(name, default): return int(os.environ.get(name, default))
 
-MODEL_PATH = Path(os.environ.get("AE_MODEL_PATH", BASE / "model" / "best_model_LogReg.joblib"))
-MODEL_VERSION = os.environ.get("AE_MODEL_VERSION", "logreg-tfidf-2026-11-14")
+MODEL_PATH = Path(os.environ.get("AE_MODEL_PATH", BASE / "model" / "classifier_11label_logreg.joblib"))
+MODEL_VERSION = os.environ.get("AE_MODEL_VERSION", "logreg-tfidf-11label-2026-11-21")
 KNOWLEDGE_PATH = Path(os.environ.get("AE_KNOWLEDGE_PATH", BASE / "app" / "data" / "knowledge.json"))
 PROMPT_PATH = Path(os.environ.get("AE_PROMPT_PATH", BASE / "app" / "data" / "system_prompt_template.md"))
 
 MAX_LEN = _i("AE_MAX_LEN", 500)
-# Ambang 0,55: dari probabilitas out-of-fold split grouped (lihat test_output/threshold_analysis.txt)
-CONF_THRESHOLD = _f("AE_CONF_THRESHOLD", 0.55)
+# Ambang 0,50: dipilih dari probabilitas set VALIDASI dataset DS (lihat docs/evaluation/threshold_val.json, selection.json)
+CONF_THRESHOLD = _f("AE_CONF_THRESHOLD", 0.50)
 
 GEMINI_PRIMARY = os.environ.get("GEMINI_MODEL", "gemini-3.1-flash-lite")
 GEMINI_BACKUP = os.environ.get("GEMINI_BACKUP_MODEL", "gemini-2.5-flash-lite")

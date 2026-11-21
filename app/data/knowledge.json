@@ -1,49 +1,309 @@
 {
-  "_catatan": "Satu-satunya sumber fakta untuk asisten. Edit file ini kalau data pemilik berubah (harga, jam, alamat, dll). Isi 'tidak_diketahui' dipindah ke 'fakta' setelah dikonfirmasi pemilik. Sumber awal: video demo localhost Arief, dicek 14 Nov 2026, plus aturan tim.",
-  "versi": "2026-11-14",
-  "studio": {
-    "nama": "The Nail Palace",
-    "deskripsi": "Studio nail art di Kota Jambi"
+ "_catatan": "Satu-satunya sumber fakta untuk asisten. DIBANGUN OTOMATIS oleh scripts/build_knowledge.py dari paket tim DS (fakta_usaha.json + katalog layanan.json, 21 Nov 2026) ditambah aturan halaman web tim. Jangan edit manual: ubah sumbernya lalu jalankan ulang.",
+ "versi": "2026-11-21",
+ "sumber": [
+  "DS fakta_usaha.json (katalog & jam operasional dikonfirmasi owner, interview 9 Okt 2026)",
+  "DS output/json/layanan.json (15 layanan S01–S15)",
+  "Aplikasi web tim: halaman /pesan dan /cek-booking (demo Arief 14 Nov 2026)",
+  "Keputusan tim 4 Nov 2026: booking batal tidak diaktifkan lagi"
+ ],
+ "studio": {
+  "nama": "The Nail Palace",
+  "deskripsi": "Studio nail art di Kota Jambi",
+  "kota": "Kota Jambi",
+  "instagram": "https://www.instagram.com/thenailpalace____/"
+ },
+ "layanan": [
+  {
+   "kode": "S01",
+   "nama": "Manicure Basic",
+   "kategori": "manicure",
+   "harga_mulai": 60000,
+   "harga_maks": null,
+   "durasi_menit": 60,
+   "catatan": null
   },
-  "layanan": [
-    {"nama": "Full Set Acrylic", "kategori": "Extension", "harga": 350000, "durasi": "2 jam 30 menit"},
-    {"nama": "Gel Extension", "kategori": "Extension", "harga": 300000, "durasi": "2 jam"},
-    {"nama": "Gel Polish", "kategori": "Manicure", "harga": 120000, "durasi": "1 jam"},
-    {"nama": "Manicure Basic", "kategori": "Manicure", "harga": 80000, "durasi": "1 jam"},
-    {"nama": "Nail Art Premium", "kategori": "Nail Art", "harga": 250000, "durasi": "2 jam"},
-    {"nama": "Nail Art Simple", "kategori": "Nail Art", "harga": 150000, "durasi": "1 jam 30 menit"},
-    {"nama": "Pedicure Spa", "kategori": "Perawatan", "harga": 130000, "durasi": "1 jam 30 menit"},
-    {"nama": "Remove Gel", "kategori": "Perawatan", "harga": 40000, "durasi": "30 menit"}
-  ],
-  "cara_reservasi": {
-    "tanpa_akun": "Reservasi tidak perlu akun, tanpa kata sandi.",
-    "halaman_pesan": "/pesan",
-    "langkah": [
-      "Pilih layanan",
-      "Pilih tanggal dan jam",
-      "Isi nama dan nomor HP (catatan atau tautan referensi desain boleh diisi, opsional)",
-      "Tinjau lalu kirim"
-    ],
-    "setelah_kirim": "Pelanggan mendapat kode booking berformat NP-YYYYMMDD-XXXX dengan status 'Menunggu konfirmasi' sampai pemilik studio mengonfirmasi.",
-    "cek_status": "Status booking bisa dicek di halaman /cek-booking dengan memasukkan kode booking dan nomor HP.",
-    "slot": "Jam yang tersedia dipilih langsung di halaman /pesan. Di demo terlihat slot tiap 30 menit dari 13.00 sampai 17.30 pada satu hari, tetapi ini BELUM dikonfirmasi sebagai jam operasional resmi."
+  {
+   "kode": "S02",
+   "nama": "Pedicure Basic",
+   "kategori": "pedicure",
+   "harga_mulai": 80000,
+   "harga_maks": null,
+   "durasi_menit": 60,
+   "catatan": null
   },
-  "aturan_booking": [
-    "Reservasi yang sudah dibatalkan tidak bisa diaktifkan kembali.",
-    "Untuk memesan ulang, pelanggan membuat booking baru dan akan mendapat kode booking baru.",
-    "Booking ulang boleh di tanggal dan jam yang sama selama slot itu masih kosong.",
-    "Booking baru tetap menunggu konfirmasi pemilik."
+  {
+   "kode": "S03",
+   "nama": "Manicure + Pedicure",
+   "kategori": "paket",
+   "harga_mulai": 130000,
+   "harga_maks": null,
+   "durasi_menit": 120,
+   "catatan": null
+  },
+  {
+   "kode": "S04",
+   "nama": "Gel Polish Polos",
+   "kategori": "gel_polish",
+   "harga_mulai": 100000,
+   "harga_maks": null,
+   "durasi_menit": 60,
+   "catatan": null
+  },
+  {
+   "kode": "S05",
+   "nama": "Gel Polish + Nail Art Simple",
+   "kategori": "gel_polish",
+   "harga_mulai": 150000,
+   "harga_maks": 175000,
+   "durasi_menit": 90,
+   "catatan": "Kisaran harga Rp150.000–Rp175.000. Tergantung tingkat kerumitan."
+  },
+  {
+   "kode": "S06",
+   "nama": "Gel Polish + Nail Art Full",
+   "kategori": "nail_art",
+   "harga_mulai": 200000,
+   "harga_maks": 260000,
+   "durasi_menit": 120,
+   "catatan": "Kisaran harga Rp200.000–Rp260.000. Harga naik jika pakai charm atau 3D."
+  },
+  {
+   "kode": "S07",
+   "nama": "French Tip / Ombre",
+   "kategori": "nail_art",
+   "harga_mulai": 140000,
+   "harga_maks": 170000,
+   "durasi_menit": 90,
+   "catatan": "Kisaran harga Rp140.000–Rp170.000."
+  },
+  {
+   "kode": "S08",
+   "nama": "Nail Extension (Soft Gel)",
+   "kategori": "extension",
+   "harga_mulai": 250000,
+   "harga_maks": 290000,
+   "durasi_menit": 150,
+   "catatan": "Kisaran harga Rp250.000–Rp290.000. Harga per set, panjang kuku memengaruhi."
+  },
+  {
+   "kode": "S09",
+   "nama": "Nail Extension + Art",
+   "kategori": "extension",
+   "harga_mulai": 320000,
+   "harga_maks": 400000,
+   "durasi_menit": 180,
+   "catatan": "Kisaran harga Rp320.000–Rp400.000."
+  },
+  {
+   "kode": "S10",
+   "nama": "Refill Extension",
+   "kategori": "extension",
+   "harga_mulai": 180000,
+   "harga_maks": 220000,
+   "durasi_menit": 120,
+   "catatan": "Kisaran harga Rp180.000–Rp220.000. Maksimal 4 minggu dari extension terakhir."
+  },
+  {
+   "kode": "S11",
+   "nama": "Cat Eye / Chrome",
+   "kategori": "nail_art",
+   "harga_mulai": 170000,
+   "harga_maks": 200000,
+   "durasi_menit": 90,
+   "catatan": "Kisaran harga Rp170.000–Rp200.000."
+  },
+  {
+   "kode": "S12",
+   "nama": "Remove Gel",
+   "kategori": "tambahan",
+   "harga_mulai": 40000,
+   "harga_maks": null,
+   "durasi_menit": 30,
+   "catatan": null
+  },
+  {
+   "kode": "S13",
+   "nama": "Remove Extension",
+   "kategori": "tambahan",
+   "harga_mulai": 60000,
+   "harga_maks": null,
+   "durasi_menit": 45,
+   "catatan": "Gratis jika extension dikerjakan di sini."
+  },
+  {
+   "kode": "S14",
+   "nama": "Nail Repair (per kuku)",
+   "kategori": "tambahan",
+   "harga_mulai": 15000,
+   "harga_maks": null,
+   "durasi_menit": 15,
+   "catatan": "Harga per kuku."
+  },
+  {
+   "kode": "S15",
+   "nama": "Paket Wisuda / Bridal",
+   "kategori": "paket",
+   "harga_mulai": 400000,
+   "harga_maks": 550000,
+   "durasi_menit": 180,
+   "catatan": "Kisaran harga Rp400.000–Rp550.000. Sudah termasuk remove gel."
+  }
+ ],
+ "layanan_desain": {
+  "kategori": [
+   "extension",
+   "gel_polish",
+   "manicure",
+   "nail_art",
+   "paket",
+   "pedicure",
+   "tambahan"
   ],
-  "tidak_diketahui": [
-    "jam dan hari buka resmi",
-    "alamat lengkap studio",
-    "nomor WhatsApp atau kontak studio",
-    "info parkir",
-    "prosedur detail pembatalan atau ubah jadwal (cara teknisnya)",
-    "kebijakan keterlambatan",
-    "hari libur atau tanggal tutup",
-    "promo, diskon, metode pembayaran, DP",
-    "layanan atau harga di luar daftar layanan"
+  "desain_custom": "Bisa membawa foto referensi desain (fitur unggah referensi saat reservasi).",
+  "cakupan": "Studio khusus kuku (manicure, pedicure, gel, nail art, extension)."
+ },
+ "jam_operasional": [
+  {
+   "hari": "Minggu",
+   "buka": false,
+   "jam": null,
+   "istirahat": null
+  },
+  {
+   "hari": "Senin",
+   "buka": true,
+   "jam": "10:00–19:00",
+   "istirahat": "12:00–13:00"
+  },
+  {
+   "hari": "Selasa",
+   "buka": true,
+   "jam": "10:00–19:00",
+   "istirahat": "12:00–13:00"
+  },
+  {
+   "hari": "Rabu",
+   "buka": true,
+   "jam": "10:00–19:00",
+   "istirahat": "12:00–13:00"
+  },
+  {
+   "hari": "Kamis",
+   "buka": true,
+   "jam": "10:00–19:00",
+   "istirahat": "12:00–13:00"
+  },
+  {
+   "hari": "Jumat",
+   "buka": true,
+   "jam": "10:00–19:00",
+   "istirahat": "11:30–13:00"
+  },
+  {
+   "hari": "Sabtu",
+   "buka": true,
+   "jam": "10:00–19:00",
+   "istirahat": "12:00–13:00"
+  }
+ ],
+ "hari_libur_tercatat": [
+  {
+   "tanggal": "2026-04-14",
+   "keterangan": "Tutup (keperluan pribadi)"
+  },
+  {
+   "tanggal": "2026-04-15",
+   "keterangan": "Tutup (keperluan pribadi)"
+  },
+  {
+   "tanggal": "2026-05-14",
+   "keterangan": "Kenaikan Isa Almasih"
+  },
+  {
+   "tanggal": "2026-05-27",
+   "keterangan": "Idul Adha"
+  },
+  {
+   "tanggal": "2026-06-16",
+   "keterangan": "1 Muharram"
+  },
+  {
+   "tanggal": "2026-07-20",
+   "keterangan": "Tutup (keperluan pribadi)"
+  },
+  {
+   "tanggal": "2026-08-17",
+   "keterangan": "HUT RI"
+  },
+  {
+   "tanggal": "2026-08-25",
+   "keterangan": "Maulid Nabi"
+  },
+  {
+   "tanggal": "2026-09-08",
+   "keterangan": "Tutup (keperluan pribadi)"
+  },
+  {
+   "tanggal": "2026-09-09",
+   "keterangan": "Tutup (keperluan pribadi)"
+  }
+ ],
+ "cara_reservasi": {
+  "halaman_pesan": "/pesan",
+  "tanpa_akun": "Reservasi tidak perlu membuat akun.",
+  "langkah": [
+   "Pilih layanan di website",
+   "Pilih tanggal & jam dari slot yang masih kosong",
+   "Isi nama, nomor HP, catatan/foto referensi",
+   "Kirim; status awal 'menunggu konfirmasi' sampai dikonfirmasi pemilik"
   ],
-  "arahan_kontak": "Untuk info yang belum tersedia, sarankan pelanggan menghubungi studio The Nail Palace secara langsung."
+  "aturan": [
+   "Pemesanan paling jauh 60 hari ke depan; Sabtu paling ramai, disarankan memesan H-3",
+   "Ketersediaan slot hanya bisa dilihat langsung di halaman /pesan (asisten tidak bisa mengecek slot)."
+  ],
+  "kode_booking": "Setelah kirim, pelanggan mendapat kode booking berformat NP-YYYYMMDD-XXXX."
+ },
+ "cek_ubah_batal": {
+  "halaman_cek": "/cek-booking",
+  "aturan": [
+   "Cek status & batalkan lewat halaman cek reservasi dengan kode booking (NP-YYYYMMDD-XXXX) + nomor HP",
+   "Pembatalan oleh customer hanya sebelum jadwal mulai",
+   "Jadwal ulang dilakukan pemilik: hubungi studio",
+   "Reservasi yang sudah dibatalkan tidak bisa diaktifkan kembali; untuk pesan ulang buat booking baru (kode baru) dan tetap menunggu konfirmasi pemilik."
+  ]
+ },
+ "pembayaran": {
+  "metode": [
+   "tunai",
+   "transfer",
+   "QRIS"
+  ],
+  "waktu": "Dibayar di studio setelah layanan",
+  "dp": "Tidak ada DP / pembayaran online lewat website"
+ },
+ "perawatan_keluhan": {
+  "keluhan": "Keluhan hasil layanan disampaikan langsung ke studio (WhatsApp studio atau Instagram).",
+  "catatan_katalog": [
+   "Refill Extension: Kisaran harga Rp180.000–Rp220.000. Maksimal 4 minggu dari extension terakhir.",
+   "Remove Extension: Gratis jika extension dikerjakan di sini."
+  ]
+ },
+ "tidak_diketahui": [
+  "alamat lengkap studio (yang diketahui hanya: Kota Jambi)",
+  "patokan lokasi dan info parkir",
+  "nomor WhatsApp studio",
+  "nomor rekening untuk transfer",
+  "garansi atau kebijakan perbaikan gratis setelah layanan",
+  "promo atau diskon",
+  "kebijakan keterlambatan datang",
+  "biaya pembatalan",
+  "hari libur mendatang selain yang tercatat (cek slot di halaman /pesan)",
+  "layanan, desain khusus, atau harga di luar daftar layanan"
+ ],
+ "kontak": {
+  "instagram": "https://www.instagram.com/thenailpalace____/",
+  "whatsapp": null
+ },
+ "arahan_kontak": "Untuk info yang belum tersedia, sarankan pelanggan menghubungi studio The Nail Palace lewat Instagram https://www.instagram.com/thenailpalace____/ (DM)."
 }

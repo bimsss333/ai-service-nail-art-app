@@ -1,353 +1,202 @@
 {
-  "data": "/workspace/capstone/data/dataset_classifier_v2_label_pp.csv",
-  "n": 600,
-  "label_counts": {
-    "cara_reservasi": 200,
-    "layanan_harga": 150,
-    "info_operasional": 150,
-    "pembatalan_keluhan": 100
+  "dataset": "/workspace/capstone/ds_hasil_21nov/datasciencs-nail-art/output/dataset_pertanyaan",
+  "dataset_versi_label": "v1.0",
+  "n": {
+    "train": 875,
+    "val": 172,
+    "test": 164
   },
-  "n_groups": 60,
-  "random_state": 42,
-  "results": {
-    "grouped_LogReg": {
-      "split": "grouped",
-      "model": "LogReg",
-      "macro_f1_mean": 0.9010670981721052,
-      "macro_f1_std": 0.034793927674884595,
-      "macro_f1_folds": [
-        0.922069597069597,
-        0.9138037676277093,
-        0.836389616575375,
-        0.8966869088652896,
-        0.936385600722555
+  "labels": [
+    "cara_reservasi",
+    "cek_ubah_batal",
+    "di_luar_konteks",
+    "durasi",
+    "harga",
+    "jam_operasional",
+    "layanan_desain",
+    "lokasi",
+    "pembayaran",
+    "perawatan_keluhan",
+    "sapaan"
+  ],
+  "selection": {
+    "chosen": "LogReg",
+    "reason": "selisih val F1 LogReg-LinearSVC = +0.0503, |selisih| vs SD nested terbesar 0.0687; LogReg punya predict_proba untuk ambang keyakinan",
+    "threshold": 0.5,
+    "threshold_rule": "ambang terbesar dgn macro F1 val (ragu->di_luar_konteks) >= F1 val tanpa ambang - 0.01",
+    "params": {
+      "tfidf": "word(1, 1)",
+      "C": 10,
+      "class_weight": "balanced"
+    },
+    "locked_before_test": true
+  },
+  "summary": {
+    "LogReg": {
+      "nested_cv_f1_mean": 0.4784803449457112,
+      "nested_cv_f1_sd": 0.05278931252568846,
+      "nested_cv_acc_mean": 0.4938366193011827,
+      "nested_fold_f1": [
+        0.5150933633485306,
+        0.4906461373483402,
+        0.5285570174851839,
+        0.4793077599092637,
+        0.3787974466372376
       ],
-      "accuracy_mean": 0.9033333333333333,
-      "macro_f1_pooled_oof": 0.9015803233580811,
-      "best_params_per_fold": [
+      "nested_fold_params": [
         {
-          "clf__C": "10",
-          "tfidf__min_df": "2",
-          "tfidf__ngram_range": "(1, 2)",
-          "tfidf__sublinear_tf": "True"
+          "tfidf": "word(1, 1)",
+          "C": 10,
+          "class_weight": null
         },
         {
-          "clf__C": "10",
-          "tfidf__min_df": "2",
-          "tfidf__ngram_range": "(1, 2)",
-          "tfidf__sublinear_tf": "True"
+          "tfidf": "char_wb(3,5)",
+          "C": 10,
+          "class_weight": null
         },
         {
-          "clf__C": "10",
-          "tfidf__min_df": "1",
-          "tfidf__ngram_range": "(1, 2)",
-          "tfidf__sublinear_tf": "True"
+          "tfidf": "word(1, 1)",
+          "C": 10,
+          "class_weight": "balanced"
         },
         {
-          "clf__C": "10",
-          "tfidf__min_df": "1",
-          "tfidf__ngram_range": "(1, 2)",
-          "tfidf__sublinear_tf": "True"
+          "tfidf": "word(1, 1)",
+          "C": 10,
+          "class_weight": "balanced"
         },
         {
-          "clf__C": "10",
-          "tfidf__min_df": "1",
-          "tfidf__ngram_range": "(1, 1)",
-          "tfidf__sublinear_tf": "True"
+          "tfidf": "char_wb(3,5)",
+          "C": 10,
+          "class_weight": null
         }
       ],
-      "confusion_matrix": {
-        "labels": [
-          "layanan_harga",
-          "info_operasional",
-          "cara_reservasi",
-          "pembatalan_keluhan"
+      "best_params_train_cv": {
+        "tfidf": "word(1, 1)",
+        "C": 10,
+        "class_weight": "balanced"
+      },
+      "train_cv_f1": 0.5154657708217532,
+      "val_f1": 0.6722802039259571,
+      "val_acc": 0.7209302325581395,
+      "test_f1": 0.5132619905347179,
+      "test_acc": 0.5121951219512195,
+      "top_confusions": [
+        [
+          "sapaan",
+          "di_luar_konteks",
+          11
         ],
-        "matrix": [
-          [
-            144,
-            2,
-            3,
-            1
-          ],
-          [
-            2,
-            137,
-            10,
-            1
-          ],
-          [
-            9,
-            4,
-            175,
-            12
-          ],
-          [
-            2,
-            2,
-            10,
-            86
-          ]
+        [
+          "durasi",
+          "layanan_desain",
+          8
+        ],
+        [
+          "cek_ubah_batal",
+          "cara_reservasi",
+          7
+        ],
+        [
+          "cek_ubah_batal",
+          "layanan_desain",
+          6
+        ],
+        [
+          "di_luar_konteks",
+          "cek_ubah_batal",
+          4
         ]
+      ],
+      "test_with_threshold": {
+        "thr": 0.5,
+        "pct_ragu": 0.4817073170731707,
+        "f1_macro_mapped": 0.41880722782679275,
+        "acc_mapped": 0.42073170731707316,
+        "acc_di_atas": 0.6470588235294118
       }
     },
-    "grouped_LinearSVC": {
-      "split": "grouped",
-      "model": "LinearSVC",
-      "macro_f1_mean": 0.9000090599454019,
-      "macro_f1_std": 0.0366759181815352,
-      "macro_f1_folds": [
-        0.9172229013715,
-        0.9209818902093944,
-        0.8284856533971131,
-        0.904064491621998,
-        0.9292903631270039
+    "LinearSVC": {
+      "nested_cv_f1_mean": 0.4898318968719607,
+      "nested_cv_f1_sd": 0.06870712493435098,
+      "nested_cv_acc_mean": 0.5120782739300458,
+      "nested_fold_f1": [
+        0.5160986619181791,
+        0.5437429186839583,
+        0.5470622332857737,
+        0.48150662409555695,
+        0.3607490463763356
       ],
-      "accuracy_mean": 0.9016666666666666,
-      "macro_f1_pooled_oof": 0.9010195462009775,
-      "best_params_per_fold": [
+      "nested_fold_params": [
         {
-          "clf__C": "10",
-          "tfidf__min_df": "1",
-          "tfidf__ngram_range": "(1, 2)",
-          "tfidf__sublinear_tf": "True"
+          "tfidf": "word(1, 1)",
+          "C": 1,
+          "class_weight": "balanced"
         },
         {
-          "clf__C": "1",
-          "tfidf__min_df": "2",
-          "tfidf__ngram_range": "(1, 2)",
-          "tfidf__sublinear_tf": "True"
+          "tfidf": "char_wb(3,5)",
+          "C": 1,
+          "class_weight": "balanced"
         },
         {
-          "clf__C": "10",
-          "tfidf__min_df": "1",
-          "tfidf__ngram_range": "(1, 2)",
-          "tfidf__sublinear_tf": "True"
+          "tfidf": "char_wb(3,5)",
+          "C": 10,
+          "class_weight": null
         },
         {
-          "clf__C": "1",
-          "tfidf__min_df": "1",
-          "tfidf__ngram_range": "(1, 1)",
-          "tfidf__sublinear_tf": "True"
+          "tfidf": "word(1, 1)",
+          "C": 1,
+          "class_weight": "balanced"
         },
         {
-          "clf__C": "1",
-          "tfidf__min_df": "1",
-          "tfidf__ngram_range": "(1, 1)",
-          "tfidf__sublinear_tf": "True"
+          "tfidf": "char_wb(3,5)",
+          "C": 10,
+          "class_weight": "balanced"
         }
       ],
-      "confusion_matrix": {
-        "labels": [
-          "layanan_harga",
-          "info_operasional",
-          "cara_reservasi",
-          "pembatalan_keluhan"
+      "best_params_train_cv": {
+        "tfidf": "word(1, 2)",
+        "C": 10,
+        "class_weight": "balanced"
+      },
+      "train_cv_f1": 0.537611784756923,
+      "val_f1": 0.6219868405920969,
+      "val_acc": 0.6627906976744186,
+      "test_f1": 0.3804297948126894,
+      "test_acc": 0.4024390243902439,
+      "top_confusions": [
+        [
+          "sapaan",
+          "di_luar_konteks",
+          9
         ],
-        "matrix": [
-          [
-            144,
-            2,
-            2,
-            2
-          ],
-          [
-            1,
-            138,
-            9,
-            2
-          ],
-          [
-            10,
-            9,
-            171,
-            10
-          ],
-          [
-            2,
-            1,
-            9,
-            88
-          ]
-        ]
-      }
-    },
-    "random_LogReg": {
-      "split": "random",
-      "model": "LogReg",
-      "macro_f1_mean": 0.922991444986889,
-      "macro_f1_std": 0.02799542209267559,
-      "macro_f1_folds": [
-        0.9058139782579367,
-        0.9180148189590511,
-        0.9076810879658161,
-        0.9782112471467109,
-        0.90523609260493
-      ],
-      "accuracy_mean": 0.9266666666666667,
-      "macro_f1_pooled_oof": 0.9231116015132409,
-      "best_params_per_fold": [
-        {
-          "clf__C": "10",
-          "tfidf__min_df": "2",
-          "tfidf__ngram_range": "(1, 2)",
-          "tfidf__sublinear_tf": "True"
-        },
-        {
-          "clf__C": "10",
-          "tfidf__min_df": "2",
-          "tfidf__ngram_range": "(1, 2)",
-          "tfidf__sublinear_tf": "True"
-        },
-        {
-          "clf__C": "10",
-          "tfidf__min_df": "1",
-          "tfidf__ngram_range": "(1, 2)",
-          "tfidf__sublinear_tf": "True"
-        },
-        {
-          "clf__C": "10",
-          "tfidf__min_df": "1",
-          "tfidf__ngram_range": "(1, 1)",
-          "tfidf__sublinear_tf": "True"
-        },
-        {
-          "clf__C": "10",
-          "tfidf__min_df": "1",
-          "tfidf__ngram_range": "(1, 1)",
-          "tfidf__sublinear_tf": "True"
-        }
-      ],
-      "confusion_matrix": {
-        "labels": [
-          "layanan_harga",
-          "info_operasional",
-          "cara_reservasi",
-          "pembatalan_keluhan"
+        [
+          "durasi",
+          "harga",
+          8
         ],
-        "matrix": [
-          [
-            146,
-            2,
-            1,
-            1
-          ],
-          [
-            0,
-            146,
-            4,
-            0
-          ],
-          [
-            7,
-            4,
-            177,
-            12
-          ],
-          [
-            2,
-            3,
-            8,
-            87
-          ]
-        ]
-      }
-    },
-    "random_LinearSVC": {
-      "split": "random",
-      "model": "LinearSVC",
-      "macro_f1_mean": 0.9323627775895389,
-      "macro_f1_std": 0.024703841626473187,
-      "macro_f1_folds": [
-        0.9320786638263715,
-        0.9302535974235716,
-        0.9111880409126671,
-        0.9782112471467109,
-        0.9100823386383731
-      ],
-      "accuracy_mean": 0.9333333333333333,
-      "macro_f1_pooled_oof": 0.9323032640776131,
-      "best_params_per_fold": [
-        {
-          "clf__C": "10",
-          "tfidf__min_df": "1",
-          "tfidf__ngram_range": "(1, 2)",
-          "tfidf__sublinear_tf": "True"
-        },
-        {
-          "clf__C": "1",
-          "tfidf__min_df": "1",
-          "tfidf__ngram_range": "(1, 2)",
-          "tfidf__sublinear_tf": "True"
-        },
-        {
-          "clf__C": "1",
-          "tfidf__min_df": "1",
-          "tfidf__ngram_range": "(1, 2)",
-          "tfidf__sublinear_tf": "True"
-        },
-        {
-          "clf__C": "1",
-          "tfidf__min_df": "1",
-          "tfidf__ngram_range": "(1, 1)",
-          "tfidf__sublinear_tf": "True"
-        },
-        {
-          "clf__C": "1",
-          "tfidf__min_df": "1",
-          "tfidf__ngram_range": "(1, 1)",
-          "tfidf__sublinear_tf": "True"
-        }
-      ],
-      "confusion_matrix": {
-        "labels": [
-          "layanan_harga",
-          "info_operasional",
-          "cara_reservasi",
-          "pembatalan_keluhan"
+        [
+          "durasi",
+          "layanan_desain",
+          8
         ],
-        "matrix": [
-          [
-            147,
-            1,
-            1,
-            1
-          ],
-          [
-            0,
-            146,
-            4,
-            0
-          ],
-          [
-            8,
-            6,
-            175,
-            11
-          ],
-          [
-            1,
-            2,
-            5,
-            92
-          ]
+        [
+          "cek_ubah_batal",
+          "cara_reservasi",
+          7
+        ],
+        [
+          "cek_ubah_batal",
+          "layanan_desain",
+          6
         ]
-      }
+      ]
     }
   },
-  "best_model": "LogReg",
-  "best_model_final_params": {
-    "clf__C": "10",
-    "tfidf__min_df": "1",
-    "tfidf__ngram_range": "(1, 2)",
-    "tfidf__sublinear_tf": "True"
-  },
-  "best_model_final_inner_cv_f1": 0.9082400894288677,
-  "versions": {
+  "env": {
     "python": "3.13.5",
-    "scikit-learn": "1.9.1",
-    "numpy": "2.5.4",
+    "sklearn": "1.9.1",
     "pandas": "3.0.6",
+    "numpy": "2.5.4",
     "matplotlib": "3.11.2",
     "joblib": "1.6.0"
   }

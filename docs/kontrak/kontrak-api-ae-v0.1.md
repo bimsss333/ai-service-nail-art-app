@@ -1,4 +1,6 @@
 # Kontrak API Layanan AE — The Nail Palace (A26-CS032)
+
+> **USANG** — diganti [`kontrak-api-ae-v0.2.md`](kontrak-api-ae-v0.2.md) (21 Nov 2026, 11 label). Disimpan sebagai riwayat.
 Versi: 0.1 — **DRAF, perlu disepakati bersama Arief (FS) / Thoha (FS) / Bima (AE)**  
 Tanggal: 14 Nov 2026 WIB  
 Pelengkap dari: `kontrak-api-web-inti-v0.1.md` (bagian 6: "FastAPI AE — kontrak terpisah")  

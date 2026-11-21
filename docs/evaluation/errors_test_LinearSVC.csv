@@ -1,0 +1,99 @@
+id,teks,label,prediksi
+Q1055,"Kak numpang tanya, kamis jam 7 malam masih ada slot dong",cara_reservasi,jam_operasional
+Q1062,booking atas nama saya ada g?,cek_ubah_batal,layanan_desain
+Q1063,booking atas nama saya ada ga?,cek_ubah_batal,layanan_desain
+Q1064,BOOKING ATAS NAMA SAYA ADA NGGAK?,cek_ubah_batal,layanan_desain
+Q1065,Hai kak bokingan atas nama saya ada ga?,cek_ubah_batal,layanan_desain
+Q1066,Min book atas nama saya ada ga?,cek_ubah_batal,layanan_desain
+Q1067,"permisi kak, bokingan atas nama saya ada g",cek_ubah_batal,layanan_desain
+Q1068,batal bokingan caranya gimana,cek_ubah_batal,cara_reservasi
+Q1069,batal bokingan caranya gimn min,cek_ubah_batal,cara_reservasi
+Q1070,batal book caranya gimana,cek_ubah_batal,cara_reservasi
+Q1071,batal booking caranya gimana,cek_ubah_batal,cara_reservasi
+Q1072,BATAL BOOKING CARANYA GIMN,cek_ubah_batal,cara_reservasi
+Q1073,"halo kak, batal booking caranya gimana",cek_ubah_batal,cara_reservasi
+Q1074,"maaf kak, batal book caranya gimana min",cek_ubah_batal,cara_reservasi
+Q1075,jual kutek buat dipake sendiri?,di_luar_konteks,harga
+Q1079,bisa jadi reselelr produk kutek,di_luar_konteks,cek_ubah_batal
+Q1080,bisa jadi reseller produk kutek?,di_luar_konteks,cek_ubah_batal
+Q1083,bs jadi reseller produk kutek?,di_luar_konteks,cek_ubah_batal
+Q1084,bisa titip paket di studio?,di_luar_konteks,lokasi
+Q1085,Bisa titip paket di studio ya,di_luar_konteks,lokasi
+Q1086,bs titip paket di studio?,di_luar_konteks,lokasi
+Q1087,bs titip paket di studio ya kak,di_luar_konteks,lokasi
+Q1088,boleh minta foto studio buat tugas kuliah?,di_luar_konteks,harga
+Q1089,boleh minta foto studio buat tugas kuliah min,di_luar_konteks,harga
+Q1090,boleh minta foto studio buat tugas kuliah ya,di_luar_konteks,harga
+Q1091,halo?? ada orang?,di_luar_konteks,layanan_desain
+Q1092,halo?? ada orang min,di_luar_konteks,layanan_desain
+Q1094,ext + art sama nail art full berapa lama totalnya??,durasi,harga
+Q1095,"halo kak, nail art simple sama nail art full berapa lama totalnya dong",durasi,harga
+Q1096,"kak mau tanya, full art sama nail art full brapa lama totalnya?",durasi,harga
+Q1097,nail art simple sama nail art full berapa lma totalnya 🙏,durasi,harga
+Q1098,nail art simple sama nail art full brapa lma totalnya,durasi,harga
+Q1099,paket bridal sama nail art full berapa lama totalnya?,durasi,harga
+Q1100,paket wisuda sama nail art full brapa lama totalnya kak,durasi,harga
+Q1101,"permisi kak, magnet sama nail art full berapa lama totalnya?",durasi,harga
+Q1102,hai kak copot extension bs cepet ga soalnya ada acara kak?,durasi,layanan_desain
+Q1103,kak gelpolish bisa cepet nggak soalnya ada acara,durasi,layanan_desain
+Q1104,"maaf kak, manicure pedicure bs cepet ga soalnya ada acara",durasi,layanan_desain
+Q1105,magnet bs cepet ga soalnya ada acara,durasi,layanan_desain
+Q1106,manicure pedicure bisa cepet nggak soalnya ada acara ya,durasi,layanan_desain
+Q1107,ombre bisa cepet ga soalnya ada acara,durasi,layanan_desain
+Q1108,paket mani pedi bisa cepet gak soalnya ada acara,durasi,layanan_desain
+Q1109,PEDI BISA CEPET GA SOALNYA ADA ACARA,durasi,layanan_desain
+Q1110,"halo kak, pricelist dong ka",harga,sapaan
+Q1111,"kak numpang tanya, pricelist donk ka",harga,di_luar_konteks
+Q1112,"permisi kak, pricelist dong ka dong",harga,sapaan
+Q1113,pricelist dong kak,harga,di_luar_konteks
+Q1114,Pricelist dong kakak,harga,sapaan
+Q1115,Pricelist donk kakak,harga,di_luar_konteks
+Q1116,biaya gel + art simple utk kuku panjang beda ga kak?,harga,layanan_desain
+Q1118,biaya lepas ext untuk kuku panjang beda ga?,harga,durasi
+Q1119,biaya nail art simple untuk kuku panjang beda ga?,harga,layanan_desain
+Q1120,Biaya ombre untuk kuku panjang beda nggak?,harga,layanan_desain
+Q1121,"kak mau tanya, biaya copot gel untuk kuku panjang beda ga",harga,layanan_desain
+Q1122,"kak mau tanya, biaya repair kuku untuk kuku panjang beda ga?",harga,layanan_desain
+Q1123,"kak numpang tanya, biaya french tip untuk kuku panjang beda nggak",harga,layanan_desain
+Q1150,bisa nail art 3D pake charm?,layanan_desain,harga
+Q1151,hai kak bs nail art 3D pake charm?,layanan_desain,harga
+Q1152,"halo kak, bisa nail art 3D pake charm",layanan_desain,harga
+Q1153,"kak mau tanya, bisa nail art 3D pake charm",layanan_desain,harga
+Q1154,hai kak terima refill extension untuk kuku pendek kak?,layanan_desain,pembayaran
+Q1155,"Kak numpang tanya, terima manicure+pedicure buat kuku pendek",layanan_desain,pembayaran
+Q1156,Kak terima refill extension untuk kuku pendek,layanan_desain,pembayaran
+Q1158,terima ombre pink untuk kuku pendek?,layanan_desain,pembayaran
+Q1160,terima refill untuk kuku pendek?,layanan_desain,pembayaran
+Q1165,"Kak mau tanya, minta link google maps dong kak",lokasi,perawatan_keluhan
+Q1166,"maaf kak, minta link google maps min",lokasi,di_luar_konteks
+Q1167,min minta link gogole maps,lokasi,di_luar_konteks
+Q1168,min minta link google maps,lokasi,di_luar_konteks
+Q1169,minta link google maps,lokasi,harga
+Q1170,minta link google maps kak,lokasi,harga
+Q1171,bayar nya di tempat atau transfer?,pembayaran,lokasi
+Q1172,Bayar nya di tempat atau transfer dong,pembayaran,lokasi
+Q1173,bayar nya di tempat atau transfer ya,pembayaran,lokasi
+Q1174,hai kak bayar nya di tempat atau transfer?,pembayaran,lokasi
+Q1175,"HALO KAK, BAYAR NYA DI TEMPAT ATAU TRANSFER?",pembayaran,lokasi
+Q1176,"permisi kak, bayar nya di tempat atau transfer ya",pembayaran,lokasi
+Q1177,bisa split bill?,pembayaran,di_luar_konteks
+Q1178,bisa split bill ya,pembayaran,di_luar_konteks
+Q1179,HAI KAK BS SPLIT BILL?,pembayaran,layanan_desain
+Q1180,"kak mau tanya, bisa split bill dong kak",pembayaran,di_luar_konteks
+Q1181,"kak mau tanya, bisa split bill ya",pembayaran,di_luar_konteks
+Q1182,"kak numpang tanya, bisa split bill?",pembayaran,layanan_desain
+Q1184,Hasil nya kurang rapi ka min,perawatan_keluhan,di_luar_konteks
+Q1187,hasil nya kurang rapi kakak ya kak,perawatan_keluhan,sapaan
+Q1189,boleh cuci piring abis extension?,perawatan_keluhan,layanan_desain
+Q1191,kak boleh cuci piring abis extension 🙏,perawatan_keluhan,layanan_desain
+Q1192,"kak mau tanya, boleh cuci piring abis extension?",perawatan_keluhan,layanan_desain
+Q1193,min boleh cuci piring abis extension?,perawatan_keluhan,layanan_desain
+Q1194,ASSALAMAULAIKUM,sapaan,di_luar_konteks
+Q1195,assalamualaikum,sapaan,di_luar_konteks
+Q1196,Assalamualaikum ya kak,sapaan,di_luar_konteks
+Q1197,assalamualiakum,sapaan,di_luar_konteks
+Q1199,hai kak,sapaan,di_luar_konteks
+Q1204,hehe iya ka,sapaan,di_luar_konteks
+Q1205,hehe iya kak,sapaan,di_luar_konteks
+Q1208,hehe iya kak ya kak,sapaan,di_luar_konteks
+Q1209,mantap kak,sapaan,di_luar_konteks

@@ -4,7 +4,7 @@ from fastapi.testclient import TestClient
 from app import main, genai, config
 
 client = TestClient(main.app)
-OK_BODY = {"candidates": [{"content": {"parts": [{"text": "Harga Gel Polish Rp120.000."}]}}]}
+OK_BODY = {"candidates": [{"content": {"parts": [{"text": "Harga Gel Polish Polos Rp100.000."}]}}]}
 
 class FakeHTTP:
     """Pengganti httpx.Client: mengembalikan urutan respons/eksepsi yang ditentukan."""
@@ -32,7 +32,8 @@ def test_health_tidak_bocorkan_key():
     r = client.get("/health"); j = r.json()
     assert r.status_code == 200 and j["model_loaded"] and j["gemini_configured"] is True
     assert "test-key-dummy" not in r.text
-    assert set(j["labels"]) == {"layanan_harga", "info_operasional", "cara_reservasi", "pembatalan_keluhan"}
+    assert set(j["labels"]) == set(genai.ROUTES)  # 11 label dataset DS v1.0
+    assert len(j["labels"]) == 11
 
 def test_classify_bentuk_respons():
     r = client.post("/api/v1/classify", json={"pertanyaan": "Berapa harga gel polish?"}); j = r.json()
@@ -40,6 +41,7 @@ def test_classify_bentuk_respons():
     assert j["label"] in j["probabilities"] and abs(sum(j["probabilities"].values()) - 1) < 1e-3
     assert j["confidence"] == max(j["probabilities"].values())
     assert j["yakin"] == (j["confidence"] >= config.CONF_THRESHOLD)
+    assert j["aksi"] == (genai.aksi(j["label"]) if j["yakin"] else "ragu")
 
 # --- validasi ---
 @pytest.mark.parametrize("body,pesan", [
@@ -88,8 +90,9 @@ def test_chat_sukses(monkeypatch):
     fake = use_fake(monkeypatch, [(200, OK_BODY)])
     j = client.post("/api/v1/chat", json={"pertanyaan": "Berapa harga gel polish?"}).json()
     assert j["sumber"] == "gemini" and j["model_dipakai"] == config.GEMINI_PRIMARY and j["percobaan"] == 1
-    assert j["jawaban"] == "Harga Gel Polish Rp120.000."
-    assert "Rp120.000" in fake.calls[0]["system"]  # prompt berisi fakta knowledge.json
+    assert j["jawaban"] == "Harga Gel Polish Polos Rp100.000."
+    assert "Rp100.000" in fake.calls[0]["system"] and "Paket Wisuda / Bridal" in fake.calls[0]["system"]  # fakta knowledge.json (15 layanan)
+    assert j["aksi"] in set(genai.AKSI_INSTRUKSI) | {"ragu"}
     assert fake.calls[0]["timeout"] <= config.GEMINI_TIMEOUT
 
 def test_503_lalu_sukses(monkeypatch):
@@ -146,11 +149,30 @@ def test_label_yakin_tanpa_catatan(monkeypatch):
 
 def test_fallback_semua_label_dari_knowledge():
     kb = genai.load_kb()
-    for lab in ["layanan_harga", "info_operasional", "cara_reservasi", "pembatalan_keluhan"]:
+    for lab in genai.ROUTES:
         t = genai.fallback_answer(lab, kb)
         assert t and "{" not in t
     assert "/cek-booking" in genai.fallback_answer("cara_reservasi", kb)
-    assert "Rp350.000" in genai.fallback_answer("layanan_harga", kb)
+    assert "/cek-booking" in genai.fallback_answer("cek_ubah_batal", kb)
+    assert "Rp60.000" in genai.fallback_answer("harga", kb)
+    assert "10:00–19:00" in genai.fallback_answer("jam_operasional", kb) and "Minggu" in genai.fallback_answer("jam_operasional", kb)
+    assert "QRIS" in genai.fallback_answer("pembayaran", kb)
+    assert "instagram.com" in genai.fallback_answer("lokasi", kb)
+
+def test_routing_11_label_lengkap():
+    assert len(genai.ROUTES) == 11
+    assert set(genai.ROUTES) == set(main.STATE["clf"].labels)  # setiap label model punya rute
+    assert {genai.aksi(l) for l in genai.ROUTES} == set(genai.AKSI_INSTRUKSI)
+    assert genai.aksi("label_tak_dikenal") == "arahkan_ke_kontak"
+    kb = genai.load_kb()
+    for lab in genai.ROUTES:  # prompt bisa dirakit untuk semua label, berisi arahan aksinya
+        p = genai.build_system_prompt(lab, True, kb)
+        assert genai.AKSI_INSTRUKSI[genai.aksi(lab)] in p and "{" not in p.split("## FAKTA")[0]
+
+def test_knowledge_15_layanan_tanpa_placeholder():
+    kb = genai.load_kb(); txt = genai.config.KNOWLEDGE_PATH.read_text()
+    assert len(kb["layanan"]) == 15 and [s["kode"] for s in kb["layanan"]] == [f"S{i:02d}" for i in range(1, 16)]
+    assert "PERLU_DIISI_OWNER" not in txt
 
 def test_log_tidak_memuat_pertanyaan(monkeypatch, caplog):
     use_fake(monkeypatch, [(503, {}), (503, {}), (503, {})])
@@ -170,5 +192,5 @@ def test_404_langsung_ke_cadangan(monkeypatch):
 
 def test_fallback_tanpa_kalimat_instruksi_bot():
     kb = genai.load_kb()
-    for lab in ["layanan_harga", "info_operasional", "cara_reservasi", "pembatalan_keluhan"]:
+    for lab in genai.ROUTES:
         assert "sarankan pelanggan" not in genai.fallback_answer(lab, kb)

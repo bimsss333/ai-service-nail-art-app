@@ -1,65 +1,97 @@
-N=600 (dibuang 0 teks kosong)
-label
-cara_reservasi        200
-layanan_harga         150
-info_operasional      150
-pembatalan_keluhan    100
+checksum train/val/test cocok dengan meta.json
+train: N=875 (dibuang 0 teks kosong)
+val: N=172 (dibuang 0 teks kosong)
+test: N=164 (dibuang 0 teks kosong)
+tidak ada group_id / teks yang sama lintas split
+Label: ['cara_reservasi', 'cek_ubah_batal', 'di_luar_konteks', 'durasi', 'harga', 'jam_operasional', 'layanan_desain', 'lokasi', 'pembayaran', 'perawatan_keluhan', 'sapaan']
+Jumlah per label (train/val/test):
+                   train  val  test
+label                              
+cara_reservasi        88   19    14
+cek_ubah_batal        79   13    13
+di_luar_konteks       86   17    19
+durasi                85   16    16
+harga                102   22    22
+jam_operasional       70   15    11
+layanan_desain        92   19    18
+lokasi                62   10    10
+pembayaran            62   11    12
+perawatan_keluhan     64   12    11
+sapaan                85   18    18
 
-== grouped_LogReg: macro F1 0.9011 ± 0.0348 | folds [0.9221, 0.9138, 0.8364, 0.8967, 0.9364]
-                    precision    recall  f1-score   support
+== LogReg ==
+nested CV (train, grouped 5x3) macro F1 = 0.4785 ± 0.0528 (acc 0.4938)
+  per fold: [0.5151, 0.4906, 0.5286, 0.4793, 0.3788]
+  params per fold: [{'tfidf': 'word(1, 1)', 'C': 10, 'class_weight': None}, {'tfidf': 'char_wb(3,5)', 'C': 10, 'class_weight': None}, {'tfidf': 'word(1, 1)', 'C': 10, 'class_weight': 'balanced'}, {'tfidf': 'word(1, 1)', 'C': 10, 'class_weight': 'balanced'}, {'tfidf': 'char_wb(3,5)', 'C': 10, 'class_weight': None}]
+tuning train CV5 grouped: best {'tfidf': 'word(1, 1)', 'C': 10, 'class_weight': 'balanced'} f1=0.5155
+VAL macro F1 = 0.6723  acc = 0.7209
 
-     layanan_harga      0.917     0.960     0.938       150
-  info_operasional      0.945     0.913     0.929       150
-    cara_reservasi      0.884     0.875     0.879       200
-pembatalan_keluhan      0.860     0.860     0.860       100
+== LinearSVC ==
+nested CV (train, grouped 5x3) macro F1 = 0.4898 ± 0.0687 (acc 0.5121)
+  per fold: [0.5161, 0.5437, 0.5471, 0.4815, 0.3607]
+  params per fold: [{'tfidf': 'word(1, 1)', 'C': 1, 'class_weight': 'balanced'}, {'tfidf': 'char_wb(3,5)', 'C': 1, 'class_weight': 'balanced'}, {'tfidf': 'char_wb(3,5)', 'C': 10, 'class_weight': None}, {'tfidf': 'word(1, 1)', 'C': 1, 'class_weight': 'balanced'}, {'tfidf': 'char_wb(3,5)', 'C': 10, 'class_weight': 'balanced'}]
+tuning train CV5 grouped: best {'tfidf': 'word(1, 2)', 'C': 10, 'class_weight': 'balanced'} f1=0.5376
+VAL macro F1 = 0.6220  acc = 0.6628
 
-          accuracy                          0.903       600
-         macro avg      0.901     0.902     0.902       600
-      weighted avg      0.903     0.903     0.903       600
+DIPILIH: LogReg (selisih val F1 LogReg-LinearSVC = +0.0503, |selisih| vs SD nested terbesar 0.0687; LogReg punya predict_proba untuk ambang keyakinan)
+VAL: median conf benar=0.739, salah=0.307 (n salah=48)
+thr  %ragu  acc_di_atas  n_di_atas  %salah_tertangkap  macroF1(ragu->di_luar_konteks)
+0.15    0.0%  0.7209   172    0.0%  0.6723
+0.20    1.7%  0.7337   169    6.2%  0.6771
+0.25    5.8%  0.7593   162   18.8%  0.6835
+0.30   15.7%  0.8138   145   43.8%  0.6817
+0.35   20.9%  0.8529   136   58.3%  0.6871
+0.40   25.0%  0.8682   129   64.6%  0.6749
+0.45   29.7%  0.9091   121   77.1%  0.6771
+0.50   36.6%  0.9450   109   87.5%  0.6645
+0.55   39.5%  0.9615   104   91.7%  0.6584
+0.60   46.5%  0.9783    92   95.8%  0.6189
+0.65   50.6%  0.9882    85   97.9%  0.5837
+0.70   55.8%  0.9868    76   97.9%  0.5326
+AMBANG DIPILIH: 0.5 (terbesar dengan macro F1 val setelah pemetaan >= 0.6723 - 0,01)
 
+TEST LogReg (TERPILIH): macro F1 = 0.5133, acc = 0.5122
+                   precision    recall  f1-score   support
 
-== grouped_LinearSVC: macro F1 0.9000 ± 0.0367 | folds [0.9172, 0.921, 0.8285, 0.9041, 0.9293]
-                    precision    recall  f1-score   support
+   cara_reservasi      0.636     1.000     0.778        14
+   cek_ubah_batal      0.000     0.000     0.000        13
+  di_luar_konteks      0.241     0.368     0.292        19
+           durasi      1.000     0.375     0.545        16
+            harga      0.529     0.409     0.462        22
+  jam_operasional      1.000     1.000     1.000        11
+   layanan_desain      0.367     0.611     0.458        18
+           lokasi      0.500     0.400     0.444        10
+       pembayaran      0.750     0.500     0.600        12
+perawatan_keluhan      0.500     1.000     0.667        11
+           sapaan      0.714     0.278     0.400        18
 
-     layanan_harga      0.917     0.960     0.938       150
-  info_operasional      0.920     0.920     0.920       150
-    cara_reservasi      0.895     0.855     0.875       200
-pembatalan_keluhan      0.863     0.880     0.871       100
+         accuracy                          0.512       164
+        macro avg      0.567     0.540     0.513       164
+     weighted avg      0.555     0.512     0.492       164
 
-          accuracy                          0.902       600
-         macro avg      0.899     0.904     0.901       600
-      weighted avg      0.902     0.902     0.901       600
+  kebingungan terbanyak (asli -> prediksi): [('sapaan', 'di_luar_konteks', 11), ('durasi', 'layanan_desain', 8), ('cek_ubah_batal', 'cara_reservasi', 7), ('cek_ubah_batal', 'layanan_desain', 6), ('di_luar_konteks', 'cek_ubah_batal', 4)]
 
+TEST LinearSVC (pembanding, seleksi sudah dikunci): macro F1 = 0.3804, acc = 0.4024
+                   precision    recall  f1-score   support
 
-== random_LogReg: macro F1 0.9230 ± 0.0280 | folds [0.9058, 0.918, 0.9077, 0.9782, 0.9052]
-                    precision    recall  f1-score   support
+   cara_reservasi      0.650     0.929     0.765        14
+   cek_ubah_batal      0.000     0.000     0.000        13
+  di_luar_konteks      0.231     0.316     0.267        19
+           durasi      0.000     0.000     0.000        16
+            harga      0.333     0.409     0.367        22
+  jam_operasional      0.917     1.000     0.957        11
+   layanan_desain      0.243     0.500     0.327        18
+           lokasi      0.286     0.400     0.333        10
+       pembayaran      0.000     0.000     0.000        12
+perawatan_keluhan      0.833     0.455     0.588        11
+           sapaan      0.692     0.500     0.581        18
 
-     layanan_harga      0.942     0.973     0.957       150
-  info_operasional      0.942     0.973     0.957       150
-    cara_reservasi      0.932     0.885     0.908       200
-pembatalan_keluhan      0.870     0.870     0.870       100
+         accuracy                          0.402       164
+        macro avg      0.380     0.410     0.380       164
+     weighted avg      0.364     0.402     0.369       164
 
-          accuracy                          0.927       600
-         macro avg      0.921     0.925     0.923       600
-      weighted avg      0.926     0.927     0.926       600
+  kebingungan terbanyak (asli -> prediksi): [('sapaan', 'di_luar_konteks', 9), ('durasi', 'harga', 8), ('durasi', 'layanan_desain', 8), ('cek_ubah_batal', 'cara_reservasi', 7), ('cek_ubah_batal', 'layanan_desain', 6)]
+TEST dengan ambang: {'thr': 0.5, 'pct_ragu': 0.4817073170731707, 'f1_macro_mapped': 0.41880722782679275, 'acc_mapped': 0.42073170731707316, 'acc_di_atas': 0.6470588235294118}
 
-
-== random_LinearSVC: macro F1 0.9324 ± 0.0247 | folds [0.9321, 0.9303, 0.9112, 0.9782, 0.9101]
-                    precision    recall  f1-score   support
-
-     layanan_harga      0.942     0.980     0.961       150
-  info_operasional      0.942     0.973     0.957       150
-    cara_reservasi      0.946     0.875     0.909       200
-pembatalan_keluhan      0.885     0.920     0.902       100
-
-          accuracy                          0.933       600
-         macro avg      0.929     0.937     0.932       600
-      weighted avg      0.934     0.933     0.933       600
-
-  split     model  macro_f1_mean  macro_f1_std  accuracy_mean  macro_f1_pooled_oof
-grouped    LogReg       0.901067      0.034794       0.903333             0.901580
-grouped LinearSVC       0.900009      0.036676       0.901667             0.901020
- random    LogReg       0.922991      0.027995       0.926667             0.923112
- random LinearSVC       0.932363      0.024704       0.933333             0.932303
-
-BEST (grouped): LogReg {'clf__C': 10, 'tfidf__min_df': 1, 'tfidf__ngram_range': (1, 2), 'tfidf__sublinear_tf': True} | versions: {'python': '3.13.5', 'scikit-learn': '1.9.1', 'numpy': '2.5.4', 'pandas': '3.0.6', 'matplotlib': '3.11.2', 'joblib': '1.6.0'}
+Model final (LogReg, fit train+val n=1047) disimpan: classifier_11label_logreg.joblib
+env: {'python': '3.13.5', 'sklearn': '1.9.1', 'pandas': '3.0.6', 'numpy': '2.5.4', 'matplotlib': '3.11.2', 'joblib': '1.6.0'}

@@ -5,9 +5,9 @@ H=(-H "Content-Type: application/json"); [ -n "$AE_INTERNAL_KEY" ] && H+=(-H "X-
 post() { echo "### POST $1  $2"; curl -s -w '\n[HTTP %{http_code}, %{time_total}s]\n\n' "${H[@]}" -X POST "$BASE$1" -d "$2"; }
 echo "### waktu: $(date '+%Y-%m-%d %H:%M:%S %Z')"
 echo "### GET /health"; curl -s -w '\n[HTTP %{http_code}, %{time_total}s]\n\n' "$BASE/health"
-for q in "Berapa harga gel polish kak?" "Studio buka jam berapa ya?" "Gimana cara booking buat besok?" "Kalau mau batalin reservasi gimana?" "halo"; do
+for q in "Berapa harga gel polish kak?" "Studio buka jam berapa ya?" "Gimana cara booking buat besok?" "Kalau mau batalin reservasi gimana?" "Bisa bayar pakai QRIS?" "halo kak"; do
   post /api/v1/classify "{\"pertanyaan\": \"$q\"}"; done
-for q in "Berapa harga nail art premium?" "Cara pesan jadwal gimana ya kak?" "Ada layanan ombre nggak? berapa harganya?" "Saya mau batalin booking, bisa?"; do
+for q in "Berapa harga paket wisuda?" "Hari Minggu buka nggak?" "Ada layanan ombre nggak? berapa harganya?" "Saya mau batalin booking, bisa?"; do
   post /api/v1/chat "{\"pertanyaan\": \"$q\"}"; done
 echo "### Error cases"
 post /api/v1/classify '{"pertanyaan": ""}'

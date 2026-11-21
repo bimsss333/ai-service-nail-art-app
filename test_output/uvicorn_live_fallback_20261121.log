@@ -1,0 +1,20 @@
+INFO:     Started server process [183190]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8078 (Press CTRL+C to quit)
+2026-11-21 14:48:24,996 INFO httpx HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/model-tidak-ada:generateContent "HTTP/1.1 404 Not Found"
+2026-11-21 14:48:24,996 WARNING ae.genai gemini gagal model=model-tidak-ada jenis=http status=404
+2026-11-21 14:48:25,059 INFO httpx HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/model-tidak-ada-2:generateContent "HTTP/1.1 404 Not Found"
+2026-11-21 14:48:25,059 WARNING ae.genai gemini gagal model=model-tidak-ada-2 jenis=http status=404
+2026-11-21 14:48:25,060 INFO ae chat label=jam_operasional conf=0.992 sumber=fallback model=None ms=207 percobaan=2
+INFO:     127.0.0.1:56742 - "POST /api/v1/chat HTTP/1.1" 200 OK
+2026-11-21 14:48:25,202 INFO httpx HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/model-tidak-ada:generateContent "HTTP/1.1 404 Not Found"
+2026-11-21 14:48:25,203 WARNING ae.genai gemini gagal model=model-tidak-ada jenis=http status=404
+2026-11-21 14:48:25,257 INFO httpx HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/model-tidak-ada-2:generateContent "HTTP/1.1 404 Not Found"
+2026-11-21 14:48:25,258 WARNING ae.genai gemini gagal model=model-tidak-ada-2 jenis=http status=404
+2026-11-21 14:48:25,258 INFO ae chat label=pembayaran conf=0.981 sumber=fallback model=None ms=186 percobaan=2
+INFO:     127.0.0.1:56750 - "POST /api/v1/chat HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [183190]
